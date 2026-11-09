@@ -649,7 +649,7 @@ p { margin: 0 0 1em; }
 }
 
 .logos img {
-  height: 52px;
+  height: 50px;
   width: auto;
   max-width: 170px;
   object-fit: contain;
