@@ -1,0 +1,39 @@
+name: Képek átemelése a régi oldalról
+
+on:
+  push:
+    branches: [main]
+    paths: ["scripts/kepek.txt"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  kepek:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Eszközök telepítése
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq imagemagick >/dev/null
+
+      - name: Letöltés és WebP-be alakítás
+        run: |
+          set -euo pipefail
+          mkdir -p public/assets/img
+          while read -r name url; do
+            case "$name" in ''|'#'*) continue ;; esac
+            ext="${url##*.}"
+            curl -fsSL --retry 3 "$url" -o "/tmp/$name.$ext"
+            if [ "$ext" = "png" ]; then cp "/tmp/$name.$ext" "public/assets/img/$name.png"; fi
+            convert "/tmp/$name.$ext" -auto-orient -strip -resize '1600x1600>' -quality 80 "public/assets/img/$name.webp"
+          done < scripts/kepek.txt
+          ls -la public/assets/img
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/assets/img
+          git diff --cached --quiet || { git commit -m "Képek átemelése a régi oldalról"; git push; }

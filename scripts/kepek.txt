@@ -1,0 +1,9 @@
+# név  forrás-URL  (a GitHub Actions letölti és WebP-be alakítja: public/assets/img/<név>.webp)
+reszecskek    https://tudastars.hu/wp-content/uploads/2021/03/IMG_20200730_151507-1.jpg
+reszecskek-2  https://tudastars.hu/wp-content/uploads/2021/03/IMG_2045-770x330.jpg
+presszo       https://tudastars.hu/wp-content/uploads/2015/08/esemenyhez_elkov.jpg
+cseppek       https://tudastars.hu/wp-content/uploads/2017/01/17884337_436509926692249_1829281073278474045_n.jpg
+cseppek-2     https://tudastars.hu/wp-content/uploads/2017/01/15055694_365725787103997_9146881683373191490_n.jpg
+tarsadalom    https://tudastars.hu/wp-content/uploads/2015/08/20100831-20100831-DSC_4075.jpg
+kapcsolat     https://tudastars.hu/wp-content/uploads/2016/11/20100504-DSC_8548.jpg
+logo          https://tudastars.hu/wp-content/uploads/2016/11/logo_kicsi.png
