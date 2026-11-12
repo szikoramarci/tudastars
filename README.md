@@ -16,12 +16,14 @@ public/
   jelenlegi/            az előző kör változata (saját betűk + JS: assets/css, assets/js, assets/fonts)
   assets/img/           közös képek WebP-ben (a nagyok mellett -800 méretű változat is)
   reteg/                értékesítési réteg minden oldalon: pulzáló gomb a bal alsó sarokban,
-                        ablakban a bemutatkozás és az ügyfélvélemények (reteg.html tartalom, reteg.js, reteg.css)
+                        ablakban a bemutatkozás és az ügyfélvélemények (reteg.html tartalom, reteg.js, reteg.css);
+                        tetszik.js/.css: „Tetszik ez a rész?” minden szakasz végén, összegzés és záró kérdés
   favicon.svg
   robots.txt            Disallow: /
   _headers              X-Robots-Tag: noindex, nofollow
 functions/_middleware.js  PIN-kódos belépés az egész oldal előtt (30 napos süti)
 functions/api/valasz.js   a „Mi tetszik?” válaszok mentése Workers KV-ba
+functions/api/jelzes.js   a „Tetszik ez a rész?” jelzések (tetszik, miért, másképp, záró válasz, hívás) mentése
 scripts/kepek.txt         a régi oldalról átemelendő képek listája
 .github/workflows/kepek.yml
 ```
@@ -46,7 +48,8 @@ Rossz kódnál 0,8 mp késleltetés lassítja a próbálgatást. Élesítéskor 
 
 A választó oldal kérdéseire adott válaszok a `tudastars-valaszok` Workers KV-tárba kerülnek
 (kötés neve: `VALASZOK`), egy beküldés egy bejegyzés (`valasz:<időpont>:<azonosító>`, JSON).
-Megnézhetők a Cloudflare felületén: Storage & Databases > KV > tudastars-valaszok.
+Ugyanide kerülnek a „Tetszik ez a rész?” jelzései is (`jelzes:<időpont>:<azonosító>`, a metaadatban
+a típus, az oldal és a szakasz). Megnézhetők a Cloudflare felületén: Storage & Databases > KV > tudastars-valaszok.
 
 ## Helyi teszt
 

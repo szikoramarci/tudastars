@@ -9,6 +9,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/reteg/reteg.css">
   <script src="/reteg/reteg.js" defer></script>
+  <script src="/reteg/tetszik.js" defer></script>
   <style>
     :root {
       --papir: #ffffff; --kod: #f4f3f5; --tinta: #26252b; --halvany: #5c5a64; --vonal: #dedce2;
@@ -57,6 +58,8 @@
     .valtozat--elozo .megnez { background: var(--papir); color: var(--tinta); border: 2px solid var(--tinta); }
     .valtozat--elozo .megnez:hover { background: var(--tinta); color: #fff; }
 
+    .tz-szam { display: inline-flex; align-items: center; gap: .4rem; margin: 0 0 1rem !important; font-weight: 600; color: var(--piros-mely); }
+    .tz-szam::before { content: ""; width: .9rem; height: .9rem; background: var(--piros); clip-path: path('M7.2 13S0 8.6 0 3.9A3.9 3.9 0 0 1 7.2 1.8 3.9 3.9 0 0 1 14.4 3.9C14.4 8.6 7.2 13 7.2 13Z'); }
     .kozos { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--vonal); color: var(--halvany); font-size: 1rem; }
     .kozos h2 { font-size: 1.15rem; color: var(--tinta); }
     .kozos ul { margin: 0; padding-left: 1.2rem; }
@@ -112,6 +115,7 @@
             <p class="szam">1. változat</p>
             <h2>Periódusos rendszer</h2>
             <p class="leir">A tetszett táblázat továbbvitele a logó piros és grafit színeivel. Egy elemre kattintva megjelenik a program leírása és a saját oldala; mobilon a leírás a képernyő tetejére tapad, amíg a táblázatot görgeti.</p>
+            <p class="tz-szam" data-tz-oldal="/valtozat-1/" hidden></p>
             <a class="megnez" href="valtozat-1/">Megnézem az 1. változatot</a>
           </div>
         </li>
@@ -124,6 +128,7 @@
             <p class="szam">2. változat</p>
             <h2>Kockás füzet</h2>
             <p class="leir">Iskolai füzetlap piros margóval. Elöl a két ma is futó program és a szolgáltatások, utána időrendben minden, amit 2002 óta csináltak, az évszámok a margóban.</p>
+            <p class="tz-szam" data-tz-oldal="/valtozat-2/" hidden></p>
             <a class="megnez" href="valtozat-2/">Megnézem a 2. változatot</a>
           </div>
         </li>
@@ -136,6 +141,7 @@
             <p class="szam">3. változat</p>
             <h2>Két ajtó</h2>
             <p class="leir">Sötét, fotós nyitókép, utána két ajtó: gyerekeknek és érdeklődőknek, illetve kutatóknak és intézményeknek. Mindenki először a neki szóló programokat látja.</p>
+            <p class="tz-szam" data-tz-oldal="/valtozat-3/" hidden></p>
             <a class="megnez" href="valtozat-3/">Megnézem a 3. változatot</a>
           </div>
         </li>
@@ -148,6 +154,7 @@
             <p class="szam">Előző kör</p>
             <h2>Periódusos rendszer, első változat</h2>
             <p class="leir">Amit legutóbb láttak, a visszajelzés utáni színekkel. Saját betűtípusokkal és egy kis JavaScripttel készült, ezért szélesebb a fejléce és animált a táblázata.</p>
+            <p class="tz-szam" data-tz-oldal="/jelenlegi/" hidden></p>
             <a class="megnez" href="jelenlegi/">Megnézem az előző változatot</a>
           </div>
         </li>
