@@ -192,3 +192,6 @@ a:hover { color: var(--tinta); }
 }
 .hivassav .gomb { flex: 1; }
 @media (min-width: 760px) { .hivassav { display: none; } }
+
+/* tervváltozat-sáv linkjei */
+.terv-sav__linkek { display: flex; flex-wrap: wrap; gap: .2rem 1.25rem; }

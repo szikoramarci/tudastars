@@ -59,6 +59,55 @@
     .kozos h2 { font-size: 1.15rem; color: var(--tinta); }
     .kozos ul { margin: 0; padding-left: 1.2rem; }
     .lab { padding: 1.5rem 0 2rem; font-size: .9rem; color: var(--halvany); }
+    .resz { padding: 3rem 0 0; }
+    .resz h2.cim { font-size: clamp(1.7rem, 5vw, 2.3rem); line-height: 1.1; letter-spacing: -.02em; margin: 0 0 .6rem; }
+    .resz .bev2 { color: var(--halvany); max-width: 44rem; margin: 0 0 1.5rem; }
+
+    .rolam { display: grid; gap: 1.5rem; background: var(--papir); border: 1px solid var(--vonal); border-radius: 10px; padding: 1.25rem; }
+    .rolam img { width: 100%; max-width: 15rem; border-radius: 8px; }
+    .rolam p { margin: 0 0 .9rem; }
+    .rolam .nev { font-size: 1.05rem; }
+    .rolam .ref { font-size: .98rem; color: var(--halvany); }
+    .linkek { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.25rem; margin-top: 1.25rem !important; }
+    .gomb2 { display: inline-flex; align-items: center; min-height: 46px; padding: .6rem 1.1rem; border-radius: 4px; background: var(--piros); color: #fff; font-weight: 650; text-decoration: none; }
+    .gomb2:hover { background: var(--piros-mely); color: #fff; }
+    @media (min-width: 760px) { .rolam { grid-template-columns: 15rem minmax(0, 1fr); gap: 2.25rem; padding: 1.75rem; align-items: start; } }
+
+    .velemenyek { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+    @media (min-width: 900px) { .velemenyek { grid-template-columns: 1fr 1fr; gap: 1.5rem; } }
+    .velemenyek > li { display: flex; }
+    .velemeny { flex: 1; margin: 0; background: var(--papir); border: 1px solid var(--vonal); border-radius: 10px; padding: 1.25rem 1.25rem 1.1rem; display: flex; flex-direction: column; }
+    .velemeny h3 { font-size: 1.12rem; margin: 0 0 .4rem; }
+    .velemeny blockquote { margin: 0 0 1rem; flex: 1; }
+    .velemeny blockquote p { margin: 0; }
+    .velemeny figcaption { display: flex; align-items: center; gap: .8rem; font-size: .92rem; color: var(--halvany); }
+    .velemeny figcaption img { width: 52px; height: 52px; border-radius: 50%; flex: none; }
+    .velemeny figcaption strong { display: block; color: var(--tinta); font-size: 1rem; }
+    .tovabbi { margin: 1rem 0 0; }
+
+    .kerdesek { background: var(--papir); border: 2px solid var(--tinta); border-radius: 10px; padding: 1.25rem; }
+    @media (min-width: 760px) { .kerdesek { padding: 1.75rem 2rem; } }
+    fieldset { border: 0; margin: 0 0 1.5rem; padding: 0; min-width: 0; }
+    legend, .kerdes-cim { display: block; font-weight: 700; font-size: 1.1rem; margin: 0 0 .7rem; padding: 0; }
+    .legend-apro { font-weight: 400; color: var(--halvany); font-size: .95rem; }
+    .valasztok { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .valaszto { display: inline-flex; align-items: center; gap: .5rem; min-height: 46px; padding: .5rem .9rem; border: 1.5px solid var(--vonal); border-radius: 999px; cursor: pointer; background: var(--papir); }
+    .valaszto:hover { border-color: var(--tinta); }
+    .valaszto input { width: 1.15rem; height: 1.15rem; margin: 0; accent-color: var(--piros); }
+    .valaszto:has(input:checked) { border-color: var(--piros); background: #f8e6e8; }
+    .valaszto:has(input:focus-visible) { outline: 3px solid var(--piros); outline-offset: 2px; }
+    .valaszto input:focus-visible { outline: none; }
+    .mas { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; margin-top: .6rem; }
+    .mas label { font-weight: 600; }
+    input[type="text"], textarea { font: inherit; color: var(--tinta); border: 1.5px solid #8b8994; border-radius: 8px; padding: .6rem .75rem; width: 100%; max-width: 36rem; background: #fff; }
+    .mas input[type="text"] { width: auto; flex: 1; min-width: 12rem; }
+    textarea { min-height: 7rem; resize: vertical; display: block; }
+    input[type="text"]:focus, textarea:focus { outline: 3px solid var(--piros); outline-offset: 2px; border-color: var(--tinta); }
+    .mezo { margin: 0 0 1.5rem; }
+    .kuld { min-height: 50px; padding: .7rem 1.6rem; border: 0; border-radius: 4px; background: var(--piros); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+    .kuld:hover { background: var(--piros-mely); }
+    .kerdesek .apro { font-size: .9rem; color: var(--halvany); margin: .9rem 0 0; }
+
   </style>
 </head>
 <body>
@@ -66,7 +115,8 @@
     <div class="keret">
       <p class="marka"><span aria-hidden="true">Tt</span>TudásTárs</p>
       <h1>Tervváltozatok az új weboldalhoz</h1>
-      <p class="bev">Három irány ugyanarra a tartalomra, plusz az előző kör változata összehasonlításnak. Érdemes mindegyiket mobilon is megnézni. Írják meg, melyik tetszik, vagy mit vennének át az egyikből a másikba.</p>
+      <p class="bev">Három irány ugyanarra a tartalomra, plusz az előző kör változata összehasonlításnak. Érdemes mindegyiket mobilon is megnézni. Az oldal alján pár rövid kérdésben elmondhatják, melyik tetszik, és mit vennének át az egyikből a másikba.</p>
+      <p class="bev" style="margin-top:.75rem"><a href="#kerdesek" style="color:#fff;font-weight:600">Ugrás a kérdésekhez</a></p>
     </div>
   </header>
 
@@ -129,8 +179,108 @@
           <li>A tartalom: bemutatkozás, programok, Rólunk, elérhetőség. Az elavult események, blog és partnerlogók kimaradtak.</li>
           <li>A Tudás+Részecskék és a TudásPresszó a saját weboldalára visz tovább.</li>
           <li>Mobilon az alján mindig ott a Hívás és az Email gomb.</li>
-          <li>A keresők nem indexelik, és jelszó védi, amíg nem döntenek.</li>
+          <li>A keresők nem indexelik, és belépőkód védi, amíg nem döntenek.</li>
         </ul>
+      </section>
+
+      <section class="resz" id="rolam" aria-labelledby="rolam-cim">
+        <div class="rolam">
+          <img src="valaszto/emberek/marcell.webp" alt="Szikora Marcell portréja" width="400" height="500" loading="lazy" decoding="async">
+          <div>
+            <h2 class="cim" id="rolam-cim">Ki készítette?</h2>
+            <p class="nev"><strong>Szikora Marcell</strong>, szoftvermérnök, a Webness alapítója, Tiszanagyfaluból.</p>
+            <p>Több mint 15 éve készítek weboldalakat, webshopokat és egyedi rendszereket, eddig 116-nál is többet adtam át. Velem közvetlenül dolgoznak: azzal beszélnek, aki megtervezi és megírja az oldalt.</p>
+            <p>A mostani tudastars.hu-t is én készítettem, 2016 óta dolgozunk együtt. A változatokat előre megépítettem, hogy ne kelljen elképzelni az új oldalt, hanem ki lehessen próbálni, mobilon is.</p>
+            <p class="ref"><strong>Akiknek már dolgoztam:</strong> Salzgitter Mannesmann, D-Link, Miskolci Nemzeti Színház, Jánosik és Társai, Orha Művek.</p>
+            <p class="linkek">
+              <a class="gomb2" href="mailto:info@webness.hu">info@webness.hu</a>
+              <a href="https://webness.hu/">webness.hu</a>
+              <a href="https://www.linkedin.com/in/marcell-szikora/">LinkedIn</a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="resz" id="velemenyek" aria-labelledby="velemenyek-cim">
+        <h2 class="cim" id="velemenyek-cim">Akikkel már dolgoztam</h2>
+        <p class="bev2">Az ő szavaikkal, változtatás nélkül, a webness.hu-ról.</p>
+        <ul class="velemenyek">
+          <li>
+            <figure class="velemeny">
+              <h3>Mindig volt valami plusz</h3>
+              <blockquote><p>„2017 óta dolgozunk együtt Marcellel, többek között a Jánosik, a Hauser és a Bubbles weboldalain. Nem laikusként mondom, hiszen magam is ebben az iparágban dolgozom: minden projekt a megbeszélt határidőre elkészült, olyan szakmai minőségben, amelyben mindig volt valami plusz ahhoz képest, amire számítottam. Szerintem mindenki ezért szeret vele együtt dolgozni.”</p></blockquote>
+              <figcaption><img src="valaszto/emberek/koncz-peter.webp" alt="" width="112" height="112" loading="lazy"><span><strong>Koncz Péter</strong>online marketing szakember</span></figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="velemeny">
+              <h3>Együtt gondolkodó partner</h3>
+              <blockquote><p>„2017-ben ajánlásra kerültünk kapcsolatba a Webness-szel. Már az első beszélgetésnél tetszett, hogy odafigyelnek ránk, és olyan megoldást akarnak, amivel elégedettek leszünk. Náluk a technológiai tudás és az üzleti igényeink megértése együtt van jelen. Nem szó szerint azt valósították meg, amit mi megfogalmaztunk, hanem velünk együtt gondolkodtak, így sokszor jobbat kaptunk, mint amit elsőre kértünk! Az átadás után sem tűntek el: azóta is lelkiismeretesen reagálnak minden apró kérésünkre. Bátran ajánlom őket mindenkinek, aki nemcsak kivitelezőt, hanem együtt gondolkodó partnert keres.”</p></blockquote>
+              <figcaption><img src="valaszto/emberek/kocziszky-adam.webp" alt="" width="112" height="112" loading="lazy"><span><strong>Kocziszky Ádám</strong>Controlling &amp; Project Manager, Salzgitter Mannesmann Acélkereskedelmi Kft.</span></figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="velemeny">
+              <h3>Elégedett vagyok</h3>
+              <blockquote><p>„Abszolút elégedett vagyok a munkátokkal. Ha az iskolában lennénk, akkor csillagos ötös osztályzatot adnék. Külön díjazom a rugalmasságotokat és udvariasságotokat. Köszönöm, ahogy hozzám és a weboldalamhoz álltatok az elejétől a végéig és hogy ez nem változott a fizetés után sem.”</p></blockquote>
+              <figcaption><img src="valaszto/emberek/bekesi-diana.webp" alt="" width="112" height="112" loading="lazy"><span><strong>Dr. Békési Diána</strong>szájsebész, Nádi-Dental Kft.</span></figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="velemeny">
+              <h3>Ár/érték arány nagyon jó</h3>
+              <blockquote><p>„A közösen kidolgozott rendszereink megoldása nagyon hatékonyan, rugalmasan történt. A Webness által létrehozott szoftverek kialakításánál teljes mértékben a megrendelő igényei voltak szem előtt tartva. Nagyon pozitív a hozzáállásuk a tesztidőszak letelte utáni problémák megoldásához. Nem utolsó sorban a munkájuk ár/érték aránya nagyon jó.”</p></blockquote>
+              <figcaption><img src="valaszto/emberek/zelerik-attila.webp" alt="" width="112" height="112" loading="lazy"><span><strong>Zelerik Attila</strong>ügyvezető igazgató, Medor Kft.</span></figcaption>
+            </figure>
+          </li>
+        </ul>
+        <p class="tovabbi"><a href="https://webness.hu/ugyfeleink-velemenye">További vélemények a webness.hu-n</a></p>
+      </section>
+
+      <section class="resz" id="kerdesek" aria-labelledby="kerdesek-cim">
+        <h2 class="cim" id="kerdesek-cim">Mi tetszik?</h2>
+        <p class="bev2">Három rövid kérdés, egy perc az egész. A válaszok alapján dolgozom tovább.</p>
+        <form class="kerdesek" method="post" action="/api/valasz">
+          <fieldset>
+            <legend>1. Melyik változat tetszik leginkább?</legend>
+            <div class="valasztok">
+              <label class="valaszto"><input type="radio" name="valtozat" value="1" required>1. Periódusos rendszer</label>
+              <label class="valaszto"><input type="radio" name="valtozat" value="2">2. Kockás füzet</label>
+              <label class="valaszto"><input type="radio" name="valtozat" value="3">3. Két ajtó</label>
+              <label class="valaszto"><input type="radio" name="valtozat" value="elozo">Az előző kör</label>
+              <label class="valaszto"><input type="radio" name="valtozat" value="egyik-sem">Egyik sem igazán</label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>2. Mi tetszik benne leginkább? <span class="legend-apro">Több is választható.</span></legend>
+            <div class="valasztok">
+              <label class="valaszto"><input type="checkbox" name="tetszik" value="attekintheto">Áttekinthető</label>
+              <label class="valaszto"><input type="checkbox" name="tetszik" value="mobil">Mobilon is kényelmes</label>
+              <label class="valaszto"><input type="checkbox" name="tetszik" value="szinek">A színek</label>
+              <label class="valaszto"><input type="checkbox" name="tetszik" value="kinezet">A betűk és a kinézet</label>
+              <label class="valaszto"><input type="checkbox" name="tetszik" value="programok">Ahogy a programokat bemutatja</label>
+              <label class="valaszto"><input type="checkbox" name="tetszik" value="kepek">A fotók</label>
+            </div>
+            <div class="mas">
+              <label for="mas">Más:</label>
+              <input type="text" id="mas" name="mas" maxlength="300">
+            </div>
+          </fieldset>
+
+          <div class="mezo">
+            <label class="kerdes-cim" for="maskepp">3. Mit csinálnának másképp, vagy mit vennének át egy másik változatból?</label>
+            <textarea id="maskepp" name="maskepp" maxlength="2000"></textarea>
+          </div>
+
+          <div class="mezo">
+            <label class="kerdes-cim" for="nev">A neve <span class="legend-apro">(nem kötelező)</span></label>
+            <input type="text" id="nev" name="nev" maxlength="120" autocomplete="name">
+          </div>
+
+          <button class="kuld" type="submit">Elküldöm</button>
+          <p class="apro">A válaszokat csak az új oldal tervezéséhez használom.</p>
+        </form>
       </section>
     </div>
   </main>

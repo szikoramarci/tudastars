@@ -339,3 +339,6 @@ input:focus-visible + .elem { outline: 3px solid var(--piros); outline-offset: 6
 @media (prefers-reduced-motion: reduce) {
   .elem, .gomb { transition: none; }
 }
+
+/* tervváltozat-sáv linkjei */
+.terv-sav__linkek { display: flex; flex-wrap: wrap; gap: .2rem 1.25rem; }

@@ -708,3 +708,6 @@ address { font-style: normal; line-height: 1.55; }
   .contact { grid-template-columns: 1fr; }
   .site-footer__bottom { flex-direction: column; }
 }
+
+/* tervváltozat-sáv linkjei */
+.terv-sav__linkek { display: flex; flex-wrap: wrap; gap: .2rem 1.25rem; }
