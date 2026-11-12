@@ -107,17 +107,20 @@
   transition: opacity .2s ease, transform .2s ease;
 }
 .tz-hir--latszik { opacity: 1; transform: translate(-50%, 0); }
-@media (max-width: 759px) { body:has(.hivassav) .tz-hir { bottom: 92px; } }
+/* mobilon a bal alsó „Ki készítette?” gomb fölé */
+@media (max-width: 759px) { .tz-hir { bottom: calc(84px + var(--tz-also, 0px)); } }
+@media (max-width: 759px) { body:has(.hivassav) .tz-hir { bottom: 160px; } }
 
 /* --- Összegzés a lap alján ---------------------------------------------- */
-.tz-osszegzes {
+/* kettőzött osztály: a demó saját section-szabályai ne írják felül */
+.tz-osszegzes.tz-osszegzes {
   padding: 3rem 16px;
   background: #f4f3f5;
   border-top: 1px solid var(--tz-vonal);
   color: var(--tz-tinta);
   font: 1.02rem/1.6 var(--tz-betu);
 }
-@media (min-width: 760px) { .tz-osszegzes { padding: 4rem 32px; } }
+@media (min-width: 760px) { .tz-osszegzes.tz-osszegzes { padding: 4rem 32px; } }
 .tz-o-belso { max-width: 44rem; margin: 0 auto; }
 .tz-osszegzes h2 {
   font: 750 clamp(1.5rem, 4.5vw, 2rem)/1.15 var(--tz-betu);
