@@ -10,53 +10,87 @@
   --r-betu: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-/* --- Fülek -------------------------------------------------------------- */
-.reteg-fulek {
+/* --- Lebegő gomb a bal alsó sarokban ----------------------------------- */
+.reteg-lebego {
   position: fixed;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  left: 16px;
+  bottom: 16px;
   z-index: 45;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.reteg-ful {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: .5rem;
-  padding: .7rem .45rem .8rem;
-  border: 0;
-  border-radius: 10px 0 0 10px;
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  border: 3px solid #fff;
+  border-radius: 50%;
   background: var(--r-tinta);
-  color: #fff;
-  font: 650 .9rem/1 var(--r-betu);
-  letter-spacing: .01em;
   cursor: pointer;
-  box-shadow: -2px 4px 14px -6px rgba(0, 0, 0, .45);
-  transition: padding-right .15s ease, background-color .15s ease;
+  box-shadow: 0 8px 22px -6px rgba(0, 0, 0, .5);
+  transition: transform .15s ease;
 }
-.reteg-ful span:last-child { writing-mode: vertical-rl; }
-.reteg-ful img { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; border: 2px solid #fff; }
-.reteg-ful--rolam { background: var(--r-piros); }
-.reteg-ful--rolam:hover { background: var(--r-piros-mely); }
-.reteg-ful--velemeny:hover { background: #000; }
-.reteg-ful:hover { padding-right: .7rem; }
-.reteg-ful:focus-visible { outline: 3px solid #fff; outline-offset: -6px; }
-.reteg-ful__jel {
-  display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%;
+.reteg-lebego img {
+  display: block; width: 100%; height: 100%;
+  border-radius: 50%; object-fit: cover; object-position: 50% 22%;
+}
+.reteg-lebego:hover { transform: scale(1.06); }
+.reteg-lebego:focus-visible { outline: 3px solid var(--r-piros); outline-offset: 4px; }
+
+/* értesítés-pötty */
+.reteg-lebego__potty {
+  position: absolute; top: -2px; right: -2px;
+  width: 17px; height: 17px; border-radius: 50%;
+  background: #d7263d; border: 3px solid #fff;
+}
+
+/* felirat buborékban a gomb mellett: betöltéskor pár másodpercre megjelenik, egérrel vagy fókuszra mindig */
+.reteg-lebego__felirat {
+  position: absolute; left: calc(100% + 12px); top: 50%;
+  transform: translate(-6px, -50%);
+  padding: .5rem .85rem; border-radius: 999px;
   background: #fff; color: var(--r-tinta);
+  font: 650 .92rem/1.2 var(--r-betu); white-space: nowrap;
+  box-shadow: 0 6px 18px -6px rgba(0, 0, 0, .35);
+  opacity: 0; pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
 }
-.reteg-ful__jel svg { display: block; width: 16px; height: 16px; }
+.reteg-lebego:hover .reteg-lebego__felirat,
+.reteg-lebego:focus-visible .reteg-lebego__felirat { opacity: 1; transform: translate(0, -50%); }
 
-@media (max-width: 559px) {
-  .reteg-ful { padding: .55rem .3rem .65rem; font-size: .8rem; gap: .4rem; }
-  .reteg-ful img, .reteg-ful__jel { width: 24px; height: 24px; }
+@media (prefers-reduced-motion: no-preference) {
+  /* finom pulzálás: piros gyűrű tágul és elhalványul */
+  .reteg-lebego::before {
+    content: ""; position: absolute; inset: -3px; border-radius: 50%;
+    border: 3px solid #d7263d;
+    animation: reteg-pulzus 2.6s ease-out infinite;
+    pointer-events: none;
+  }
+  @keyframes reteg-pulzus {
+    0%   { transform: scale(1);    opacity: .85; }
+    70%  { transform: scale(1.5);  opacity: 0; }
+    100% { transform: scale(1.5);  opacity: 0; }
+  }
+  .reteg-lebego__potty { animation: reteg-potty 2.6s ease-in-out infinite; }
+  @keyframes reteg-potty {
+    0%, 100% { transform: scale(1); }
+    12%      { transform: scale(1.25); }
+    24%      { transform: scale(1); }
+  }
+  .reteg-lebego__felirat { animation: reteg-felirat 7s ease 1.5s both; }
+  @keyframes reteg-felirat {
+    0%   { opacity: 0; transform: translate(-6px, -50%); }
+    6%   { opacity: 1; transform: translate(0, -50%); }
+    88%  { opacity: 1; transform: translate(0, -50%); }
+    100% { opacity: 0; transform: translate(-6px, -50%); }
+  }
+  .reteg-lebego:hover .reteg-lebego__felirat,
+  .reteg-lebego:focus-visible .reteg-lebego__felirat { animation: none; }
 }
 
-@media print { .reteg-fulek { display: none; } }
+@media (max-width: 759px) {
+  .reteg-lebego { width: 56px; height: 56px; left: 12px; bottom: 12px; }
+  /* a változatokon mobilon alul fix Hívás/Email sáv van: fölé kerül */
+  body:has(.hivassav) .reteg-lebego { bottom: 88px; }
+}
+
+@media print { .reteg-lebego { display: none; } }
 
 /* --- Ablakok ------------------------------------------------------------ */
 html:has(.reteg-ablak[open]) { overflow: hidden; }
@@ -83,9 +117,11 @@ html:has(.reteg-ablak[open]) { overflow: hidden; }
   padding: 1.1rem 0 .9rem; margin-bottom: .5rem;
   background: #fff; border-bottom: 1px solid var(--r-vonal);
 }
-.reteg-ablak h2, .reteg-ablak h3 { font-family: var(--r-betu); font-stretch: normal; font-style: normal; text-transform: none; color: var(--r-tinta); }
+.reteg-ablak h2, .reteg-ablak h3, .reteg-ablak h4 { font-family: var(--r-betu); font-stretch: normal; font-style: normal; text-transform: none; color: var(--r-tinta); }
 .reteg-ablak h2 { margin: 0; font-size: clamp(1.35rem, 4vw, 1.7rem); font-weight: 750; line-height: 1.15; letter-spacing: -.02em; }
-.reteg-ablak h3 { margin: 0 0 .35rem; font-size: 1.05rem; font-weight: 700; line-height: 1.3; letter-spacing: 0; }
+.reteg-ablak h3 { margin: 0 0 .25rem; font-size: 1.35rem; font-weight: 750; line-height: 1.2; letter-spacing: -.01em; }
+.reteg-ablak h4 { margin: 0 0 .35rem; font-size: 1.04rem; font-weight: 700; line-height: 1.3; letter-spacing: 0; }
+.reteg-velemeny-resz { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--r-vonal); }
 .reteg-ablak blockquote, .reteg-ablak figure, .reteg-ablak p { font-family: var(--r-betu); }
 .reteg-ablak p { margin: 0 0 .85rem; }
 .reteg-ablak a { color: var(--r-piros-mely); text-underline-offset: .2em; }
@@ -131,5 +167,5 @@ html:has(.reteg-ablak[open]) { overflow: hidden; }
   @keyframes reteg-be { from { opacity: 0; transform: translateY(10px) scale(.98); } }
 }
 @media (prefers-reduced-motion: reduce) {
-  .reteg-ful { transition: none; }
+  .reteg-lebego, .reteg-lebego__felirat { transition: none; }
 }

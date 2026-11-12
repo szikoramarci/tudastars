@@ -15,8 +15,8 @@ public/
   valtozat-3/           3. Két ajtó – sötét, fotós, közönség szerint kettéosztva
   jelenlegi/            az előző kör változata (saját betűk + JS: assets/css, assets/js, assets/fonts)
   assets/img/           közös képek WebP-ben (a nagyok mellett -800 méretű változat is)
-  reteg/                értékesítési réteg minden oldalon: lebegő fülek a jobb szélen,
-                        „Ki készítette?” és „Vélemények” ablak (reteg.html tartalom, reteg.js, reteg.css)
+  reteg/                értékesítési réteg minden oldalon: pulzáló gomb a bal alsó sarokban,
+                        ablakban a bemutatkozás és az ügyfélvélemények (reteg.html tartalom, reteg.js, reteg.css)
   favicon.svg
   robots.txt            Disallow: /
   _headers              X-Robots-Tag: noindex, nofollow
