@@ -1,0 +1,135 @@
+/* Értékesítési réteg: lebegő fülek a jobb szélen + ablakok.
+   Minden oldalon ugyanígy néz ki, a demó színeitől függetlenül. */
+
+.reteg {
+  --r-tinta: #26252b;
+  --r-halvany: #5c5a64;
+  --r-vonal: #dedce2;
+  --r-piros: #b92432;
+  --r-piros-mely: #931b27;
+  --r-betu: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* --- Fülek -------------------------------------------------------------- */
+.reteg-fulek {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 45;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.reteg-ful {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+  padding: .7rem .45rem .8rem;
+  border: 0;
+  border-radius: 10px 0 0 10px;
+  background: var(--r-tinta);
+  color: #fff;
+  font: 650 .9rem/1 var(--r-betu);
+  letter-spacing: .01em;
+  cursor: pointer;
+  box-shadow: -2px 4px 14px -6px rgba(0, 0, 0, .45);
+  transition: padding-right .15s ease, background-color .15s ease;
+}
+.reteg-ful span:last-child { writing-mode: vertical-rl; }
+.reteg-ful img { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; border: 2px solid #fff; }
+.reteg-ful--rolam { background: var(--r-piros); }
+.reteg-ful--rolam:hover { background: var(--r-piros-mely); }
+.reteg-ful--velemeny:hover { background: #000; }
+.reteg-ful:hover { padding-right: .7rem; }
+.reteg-ful:focus-visible { outline: 3px solid #fff; outline-offset: -6px; }
+.reteg-ful__jel {
+  display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%;
+  background: #fff; color: var(--r-tinta);
+}
+.reteg-ful__jel svg { display: block; width: 16px; height: 16px; }
+
+@media (max-width: 559px) {
+  .reteg-ful { padding: .55rem .3rem .65rem; font-size: .8rem; gap: .4rem; }
+  .reteg-ful img, .reteg-ful__jel { width: 24px; height: 24px; }
+}
+
+@media print { .reteg-fulek { display: none; } }
+
+/* --- Ablakok ------------------------------------------------------------ */
+html:has(.reteg-ablak[open]) { overflow: hidden; }
+
+.reteg-ablak {
+  padding: 0;
+  border: 0;
+  border-radius: 14px;
+  width: min(42rem, calc(100vw - 24px));
+  max-height: min(88vh, 54rem);
+  color: var(--r-tinta);
+  background: #fff;
+  box-shadow: 0 24px 60px -20px rgba(0, 0, 0, .55);
+  font: 1rem/1.6 var(--r-betu);
+}
+.reteg-ablak::backdrop { background: rgba(18, 17, 21, .62); }
+
+.reteg-ablak__belso { max-height: inherit; overflow: auto; padding: 0 1.25rem 1.5rem; overscroll-behavior: contain; }
+@media (min-width: 640px) { .reteg-ablak__belso { padding: 0 1.75rem 1.75rem; } }
+
+.reteg-ablak__fej {
+  position: sticky; top: 0; z-index: 1;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 1.1rem 0 .9rem; margin-bottom: .5rem;
+  background: #fff; border-bottom: 1px solid var(--r-vonal);
+}
+.reteg-ablak h2, .reteg-ablak h3 { font-family: var(--r-betu); font-stretch: normal; font-style: normal; text-transform: none; color: var(--r-tinta); }
+.reteg-ablak h2 { margin: 0; font-size: clamp(1.35rem, 4vw, 1.7rem); font-weight: 750; line-height: 1.15; letter-spacing: -.02em; }
+.reteg-ablak h3 { margin: 0 0 .35rem; font-size: 1.05rem; font-weight: 700; line-height: 1.3; letter-spacing: 0; }
+.reteg-ablak blockquote, .reteg-ablak figure, .reteg-ablak p { font-family: var(--r-betu); }
+.reteg-ablak p { margin: 0 0 .85rem; }
+.reteg-ablak a { color: var(--r-piros-mely); text-underline-offset: .2em; }
+.reteg-ablak :focus-visible { outline: 3px solid var(--r-piros); outline-offset: 2px; border-radius: 4px; }
+
+.reteg-zar {
+  flex: none; display: inline-flex; align-items: center; gap: .4rem; min-height: 40px;
+  padding: .4rem .8rem; border: 1.5px solid var(--r-tinta); border-radius: 999px;
+  background: #fff; color: var(--r-tinta); font: 600 .9rem/1 var(--r-betu); cursor: pointer;
+}
+.reteg-zar span { font-size: 1.25rem; line-height: .8; }
+.reteg-zar:hover { background: var(--r-tinta); color: #fff; }
+
+.reteg-halvany { color: var(--r-halvany); }
+
+.reteg-rolam { display: grid; gap: 1.25rem; padding-top: .5rem; }
+.reteg-rolam img { width: 100%; max-width: 11rem; height: auto; border-radius: 10px; }
+@media (min-width: 640px) { .reteg-rolam { grid-template-columns: 11rem minmax(0, 1fr); gap: 1.5rem; } }
+.reteg-nev { font-size: 1.05rem; }
+.reteg-linkek { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.2rem; margin-top: 1.1rem !important; }
+.reteg-gomb {
+  display: inline-flex; align-items: center; min-height: 44px; padding: .55rem 1rem; border-radius: 6px;
+  background: var(--r-piros); color: #fff !important; font-weight: 650; text-decoration: none;
+}
+.reteg-gomb:hover { background: var(--r-piros-mely); }
+
+.reteg-tovabb { margin: 1.25rem 0 0 !important; padding-top: 1rem; border-top: 1px solid var(--r-vonal); }
+.reteg-link {
+  padding: 0; border: 0; background: none; color: var(--r-piros-mely); font: 600 1rem/1.4 var(--r-betu);
+  text-decoration: underline; text-underline-offset: .2em; cursor: pointer;
+}
+
+.reteg-velemenyek { list-style: none; margin: 0; padding: 0; display: grid; gap: .9rem; }
+.reteg-velemenyek figure { margin: 0; padding: 1rem 1.1rem; border: 1px solid var(--r-vonal); border-radius: 10px; }
+.reteg-velemenyek blockquote { margin: 0 0 .85rem; }
+.reteg-velemenyek blockquote p { margin: 0; }
+.reteg-velemenyek figcaption { display: flex; align-items: center; gap: .75rem; font-size: .9rem; color: var(--r-halvany); }
+.reteg-velemenyek figcaption img { width: 48px; height: 48px; border-radius: 50%; flex: none; }
+.reteg-velemenyek figcaption strong { display: block; color: var(--r-tinta); font-size: .98rem; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .reteg-ablak[open] { animation: reteg-be .18s ease-out; }
+  @keyframes reteg-be { from { opacity: 0; transform: translateY(10px) scale(.98); } }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reteg-ful { transition: none; }
+}

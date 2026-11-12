@@ -7,6 +7,8 @@
   <title>TudásTárs – tervváltozatok</title>
   <meta name="theme-color" content="#26252b">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/reteg/reteg.css">
+  <script src="/reteg/reteg.js" defer></script>
   <style>
     :root {
       --papir: #ffffff; --kod: #f4f3f5; --tinta: #26252b; --halvany: #5c5a64; --vonal: #dedce2;
@@ -62,28 +64,6 @@
     .resz { padding: 3rem 0 0; }
     .resz h2.cim { font-size: clamp(1.7rem, 5vw, 2.3rem); line-height: 1.1; letter-spacing: -.02em; margin: 0 0 .6rem; }
     .resz .bev2 { color: var(--halvany); max-width: 44rem; margin: 0 0 1.5rem; }
-
-    .rolam { display: grid; gap: 1.5rem; background: var(--papir); border: 1px solid var(--vonal); border-radius: 10px; padding: 1.25rem; }
-    .rolam img { width: 100%; max-width: 15rem; border-radius: 8px; }
-    .rolam p { margin: 0 0 .9rem; }
-    .rolam .nev { font-size: 1.05rem; }
-    .rolam .ref { font-size: .98rem; color: var(--halvany); }
-    .linkek { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.25rem; margin-top: 1.25rem !important; }
-    .gomb2 { display: inline-flex; align-items: center; min-height: 46px; padding: .6rem 1.1rem; border-radius: 4px; background: var(--piros); color: #fff; font-weight: 650; text-decoration: none; }
-    .gomb2:hover { background: var(--piros-mely); color: #fff; }
-    @media (min-width: 760px) { .rolam { grid-template-columns: 15rem minmax(0, 1fr); gap: 2.25rem; padding: 1.75rem; align-items: start; } }
-
-    .velemenyek { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
-    @media (min-width: 900px) { .velemenyek { grid-template-columns: 1fr 1fr; gap: 1.5rem; } }
-    .velemenyek > li { display: flex; }
-    .velemeny { flex: 1; margin: 0; background: var(--papir); border: 1px solid var(--vonal); border-radius: 10px; padding: 1.25rem 1.25rem 1.1rem; display: flex; flex-direction: column; }
-    .velemeny h3 { font-size: 1.12rem; margin: 0 0 .4rem; }
-    .velemeny blockquote { margin: 0 0 1rem; flex: 1; }
-    .velemeny blockquote p { margin: 0; }
-    .velemeny figcaption { display: flex; align-items: center; gap: .8rem; font-size: .92rem; color: var(--halvany); }
-    .velemeny figcaption img { width: 52px; height: 52px; border-radius: 50%; flex: none; }
-    .velemeny figcaption strong { display: block; color: var(--tinta); font-size: 1rem; }
-    .tovabbi { margin: 1rem 0 0; }
 
     .kerdesek { background: var(--papir); border: 2px solid var(--tinta); border-radius: 10px; padding: 1.25rem; }
     @media (min-width: 760px) { .kerdesek { padding: 1.75rem 2rem; } }
@@ -181,60 +161,6 @@
           <li>Mobilon az alján mindig ott a Hívás és az Email gomb.</li>
           <li>A keresők nem indexelik, és belépőkód védi, amíg nem döntenek.</li>
         </ul>
-      </section>
-
-      <section class="resz" id="rolam" aria-labelledby="rolam-cim">
-        <div class="rolam">
-          <img src="valaszto/emberek/marcell.webp" alt="Szikora Marcell portréja" width="400" height="500" loading="lazy" decoding="async">
-          <div>
-            <h2 class="cim" id="rolam-cim">Ki készítette?</h2>
-            <p class="nev"><strong>Szikora Marcell</strong>, szoftvermérnök, a Webness alapítója, Tiszanagyfaluból.</p>
-            <p>Több mint 15 éve készítek weboldalakat, webshopokat és egyedi rendszereket, eddig 116-nál is többet adtam át. Velem közvetlenül dolgoznak: azzal beszélnek, aki megtervezi és megírja az oldalt.</p>
-            <p>A mostani tudastars.hu-t is én készítettem, 2016 óta dolgozunk együtt. A változatokat előre megépítettem, hogy ne kelljen elképzelni az új oldalt, hanem ki lehessen próbálni, mobilon is.</p>
-            <p class="ref"><strong>Akiknek már dolgoztam:</strong> Salzgitter Mannesmann, D-Link, Miskolci Nemzeti Színház, Jánosik és Társai, Orha Művek.</p>
-            <p class="linkek">
-              <a class="gomb2" href="mailto:info@webness.hu">info@webness.hu</a>
-              <a href="https://webness.hu/">webness.hu</a>
-              <a href="https://www.linkedin.com/in/marcell-szikora/">LinkedIn</a>
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="resz" id="velemenyek" aria-labelledby="velemenyek-cim">
-        <h2 class="cim" id="velemenyek-cim">Akikkel már dolgoztam</h2>
-        <p class="bev2">Az ő szavaikkal, változtatás nélkül, a webness.hu-ról.</p>
-        <ul class="velemenyek">
-          <li>
-            <figure class="velemeny">
-              <h3>Mindig volt valami plusz</h3>
-              <blockquote><p>„2017 óta dolgozunk együtt Marcellel, többek között a Jánosik, a Hauser és a Bubbles weboldalain. Nem laikusként mondom, hiszen magam is ebben az iparágban dolgozom: minden projekt a megbeszélt határidőre elkészült, olyan szakmai minőségben, amelyben mindig volt valami plusz ahhoz képest, amire számítottam. Szerintem mindenki ezért szeret vele együtt dolgozni.”</p></blockquote>
-              <figcaption><img src="valaszto/emberek/koncz-peter.webp" alt="" width="112" height="112" loading="lazy"><span><strong>Koncz Péter</strong>online marketing szakember</span></figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure class="velemeny">
-              <h3>Együtt gondolkodó partner</h3>
-              <blockquote><p>„2017-ben ajánlásra kerültünk kapcsolatba a Webness-szel. Már az első beszélgetésnél tetszett, hogy odafigyelnek ránk, és olyan megoldást akarnak, amivel elégedettek leszünk. Náluk a technológiai tudás és az üzleti igényeink megértése együtt van jelen. Nem szó szerint azt valósították meg, amit mi megfogalmaztunk, hanem velünk együtt gondolkodtak, így sokszor jobbat kaptunk, mint amit elsőre kértünk! Az átadás után sem tűntek el: azóta is lelkiismeretesen reagálnak minden apró kérésünkre. Bátran ajánlom őket mindenkinek, aki nemcsak kivitelezőt, hanem együtt gondolkodó partnert keres.”</p></blockquote>
-              <figcaption><img src="valaszto/emberek/kocziszky-adam.webp" alt="" width="112" height="112" loading="lazy"><span><strong>Kocziszky Ádám</strong>Controlling &amp; Project Manager, Salzgitter Mannesmann Acélkereskedelmi Kft.</span></figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure class="velemeny">
-              <h3>Elégedett vagyok</h3>
-              <blockquote><p>„Abszolút elégedett vagyok a munkátokkal. Ha az iskolában lennénk, akkor csillagos ötös osztályzatot adnék. Külön díjazom a rugalmasságotokat és udvariasságotokat. Köszönöm, ahogy hozzám és a weboldalamhoz álltatok az elejétől a végéig és hogy ez nem változott a fizetés után sem.”</p></blockquote>
-              <figcaption><img src="valaszto/emberek/bekesi-diana.webp" alt="" width="112" height="112" loading="lazy"><span><strong>Dr. Békési Diána</strong>szájsebész, Nádi-Dental Kft.</span></figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure class="velemeny">
-              <h3>Ár/érték arány nagyon jó</h3>
-              <blockquote><p>„A közösen kidolgozott rendszereink megoldása nagyon hatékonyan, rugalmasan történt. A Webness által létrehozott szoftverek kialakításánál teljes mértékben a megrendelő igényei voltak szem előtt tartva. Nagyon pozitív a hozzáállásuk a tesztidőszak letelte utáni problémák megoldásához. Nem utolsó sorban a munkájuk ár/érték aránya nagyon jó.”</p></blockquote>
-              <figcaption><img src="valaszto/emberek/zelerik-attila.webp" alt="" width="112" height="112" loading="lazy"><span><strong>Zelerik Attila</strong>ügyvezető igazgató, Medor Kft.</span></figcaption>
-            </figure>
-          </li>
-        </ul>
-        <p class="tovabbi"><a href="https://webness.hu/ugyfeleink-velemenye">További vélemények a webness.hu-n</a></p>
       </section>
 
       <section class="resz" id="kerdesek" aria-labelledby="kerdesek-cim">

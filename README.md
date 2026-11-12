@@ -8,13 +8,15 @@ megy ki változtatás nélkül. Az egész oldalt egy belépőkód (PIN) védi (l
 
 ```
 public/
-  index.html            választó oldal: változatok, „Ki készítette?”, vélemények, „Mi tetszik?” kérdések
+  index.html            választó oldal: változatok és a „Mi tetszik?” kérdések
   koszonom/             a kérdések beküldése utáni oldal
   valtozat-1/           1. Periódusos rendszer – JavaScript nélkül, CSS-es kiválasztással
   valtozat-2/           2. Kockás füzet – piros margó, időrendi munkák
   valtozat-3/           3. Két ajtó – sötét, fotós, közönség szerint kettéosztva
   jelenlegi/            az előző kör változata (saját betűk + JS: assets/css, assets/js, assets/fonts)
   assets/img/           közös képek WebP-ben (a nagyok mellett -800 méretű változat is)
+  reteg/                értékesítési réteg minden oldalon: lebegő fülek a jobb szélen,
+                        „Ki készítette?” és „Vélemények” ablak (reteg.html tartalom, reteg.js, reteg.css)
   favicon.svg
   robots.txt            Disallow: /
   _headers              X-Robots-Tag: noindex, nofollow
@@ -25,7 +27,7 @@ scripts/kepek.txt         a régi oldalról átemelendő képek listája
 ```
 
 A `valtozat-1..3` a `gyorsweb` repó demószabályai szerint készült: egy HTML és egy CSS
-változatonként, rendszerbetűk, JavaScript nélkül, mobilon fix Hívás/Email sáv,
+változatonként, rendszerbetűk, JavaScript nélkül (csak a különálló réteg használ egy kis JS-t), mobilon fix Hívás/Email sáv,
 Lighthouse mobil (helyben mérve): teljesítmény, akadálymentesség és jó gyakorlatok 100.
 
 ## Belépés (PIN)
@@ -66,7 +68,8 @@ a `public/assets/img/` mappába.
 
 ## Élesítés előtt
 
-- A kiválasztott változat kerül a gyökérbe; a többi, a választó, a `koszonom/` és a `functions/` törlendő.
+- A kiválasztott változat kerül a gyökérbe; a többi, a választó, a `koszonom/`, a `reteg/` és a `functions/` törlendő,
+  és az oldalból a `reteg.css` / `reteg.js` hivatkozás.
 - A `noindex, nofollow` (HTML meta, `_headers`, `robots.txt`) törlendő.
 - Az „egyeztetendő” HTML-kommentek és az adatkezelési tájékoztató helye kitöltendő.
 - A domain DNS-ét át kell vinni a Cloudflare-re, figyelve a levelezés (MX, SPF) rekordjaira.

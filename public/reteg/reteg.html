@@ -1,0 +1,79 @@
+<!-- Értékesítési réteg: lebegő fülek és a hozzájuk tartozó ablakok.
+     A reteg.js tölti be minden oldalra. Élesítéskor a teljes reteg/ mappa
+     és az oldalakon a reteg.css / reteg.js hivatkozás törlendő. -->
+
+<nav class="reteg-fulek" aria-label="A készítőről">
+  <button type="button" class="reteg-ful reteg-ful--rolam" data-nyit="reteg-rolam" aria-haspopup="dialog">
+    <img src="/reteg/emberek/marcell.webp" alt="" width="28" height="28">
+    <span>Ki készítette?</span>
+  </button>
+  <button type="button" class="reteg-ful reteg-ful--velemeny" data-nyit="reteg-velemenyek" aria-haspopup="dialog">
+    <span class="reteg-ful__jel" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H11l-4.6 3.8c-.5.4-1.4.1-1.4-.6V16h-.5A.5.5 0 0 1 4 15.5Zm4.2 3.3c-.7 0-1.2.5-1.2 1.2s.5 1.2 1.2 1.2c.2 0 .3 0 .4-.1-.2.6-.6 1-1.2 1.2l.4.8c1.5-.5 2.3-1.6 2.3-3 0-.8-.8-1.3-1.9-1.3Zm4.4 0c-.7 0-1.2.5-1.2 1.2s.5 1.2 1.2 1.2c.2 0 .3 0 .4-.1-.2.6-.6 1-1.2 1.2l.4.8c1.5-.5 2.3-1.6 2.3-3 0-.8-.8-1.3-1.9-1.3Z"/></svg></span>
+    <span>Vélemények</span>
+  </button>
+</nav>
+
+<dialog class="reteg-ablak" id="reteg-rolam" aria-labelledby="reteg-rolam-cim">
+  <div class="reteg-ablak__belso">
+    <div class="reteg-ablak__fej">
+      <h2 id="reteg-rolam-cim">Ki készítette?</h2>
+      <button type="button" class="reteg-zar" data-zar>Bezárás <span aria-hidden="true">×</span></button>
+    </div>
+    <div class="reteg-rolam">
+      <img src="/reteg/emberek/marcell.webp" alt="Szikora Marcell portréja" width="400" height="500" loading="lazy" decoding="async">
+      <div>
+        <p class="reteg-nev"><strong>Szikora Marcell</strong><br>szoftvermérnök, a Webness alapítója, Tiszanagyfaluból</p>
+        <p>Több mint 15 éve készítek weboldalakat, webshopokat és egyedi rendszereket, eddig 116-nál is többet adtam át. Velem közvetlenül dolgoznak: azzal beszélnek, aki megtervezi és megírja az oldalt.</p>
+        <p>A mostani tudastars.hu-t is én készítettem, 2016 óta dolgozunk együtt. A változatokat előre megépítettem, hogy ne kelljen elképzelni az új oldalt, hanem ki lehessen próbálni, mobilon is.</p>
+        <p class="reteg-halvany"><strong>Akiknek már dolgoztam:</strong> Salzgitter Mannesmann, D-Link, Miskolci Nemzeti Színház, Jánosik és Társai, Orha Művek.</p>
+        <p class="reteg-linkek">
+          <a class="reteg-gomb" href="mailto:info@webness.hu">info@webness.hu</a>
+          <a href="https://webness.hu/">webness.hu</a>
+          <a href="https://www.linkedin.com/in/marcell-szikora/">LinkedIn</a>
+        </p>
+      </div>
+    </div>
+    <p class="reteg-tovabb"><button type="button" class="reteg-link" data-nyit="reteg-velemenyek">Mit mondanak rólam az ügyfeleim?</button></p>
+  </div>
+</dialog>
+
+<dialog class="reteg-ablak" id="reteg-velemenyek" aria-labelledby="reteg-velemenyek-cim">
+  <div class="reteg-ablak__belso">
+    <div class="reteg-ablak__fej">
+      <h2 id="reteg-velemenyek-cim">Akikkel már dolgoztam</h2>
+      <button type="button" class="reteg-zar" data-zar>Bezárás <span aria-hidden="true">×</span></button>
+    </div>
+    <p class="reteg-halvany">Az ő szavaikkal, változtatás nélkül, a webness.hu-ról.</p>
+    <ul class="reteg-velemenyek">
+      <li>
+        <figure>
+          <h3>Mindig volt valami plusz</h3>
+          <blockquote><p>„2017 óta dolgozunk együtt Marcellel, többek között a Jánosik, a Hauser és a Bubbles weboldalain. Nem laikusként mondom, hiszen magam is ebben az iparágban dolgozom: minden projekt a megbeszélt határidőre elkészült, olyan szakmai minőségben, amelyben mindig volt valami plusz ahhoz képest, amire számítottam. Szerintem mindenki ezért szeret vele együtt dolgozni.”</p></blockquote>
+          <figcaption><img src="/reteg/emberek/koncz-peter.webp" alt="" width="112" height="112" loading="lazy"><span><strong>Koncz Péter</strong>online marketing szakember</span></figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <h3>Együtt gondolkodó partner</h3>
+          <blockquote><p>„2017-ben ajánlásra kerültünk kapcsolatba a Webness-szel. Már az első beszélgetésnél tetszett, hogy odafigyelnek ránk, és olyan megoldást akarnak, amivel elégedettek leszünk. Náluk a technológiai tudás és az üzleti igényeink megértése együtt van jelen. Nem szó szerint azt valósították meg, amit mi megfogalmaztunk, hanem velünk együtt gondolkodtak, így sokszor jobbat kaptunk, mint amit elsőre kértünk! Az átadás után sem tűntek el: azóta is lelkiismeretesen reagálnak minden apró kérésünkre. Bátran ajánlom őket mindenkinek, aki nemcsak kivitelezőt, hanem együtt gondolkodó partnert keres.”</p></blockquote>
+          <figcaption><img src="/reteg/emberek/kocziszky-adam.webp" alt="" width="112" height="112" loading="lazy"><span><strong>Kocziszky Ádám</strong>Controlling &amp; Project Manager, Salzgitter Mannesmann Acélkereskedelmi Kft.</span></figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <h3>Elégedett vagyok</h3>
+          <blockquote><p>„Abszolút elégedett vagyok a munkátokkal. Ha az iskolában lennénk, akkor csillagos ötös osztályzatot adnék. Külön díjazom a rugalmasságotokat és udvariasságotokat. Köszönöm, ahogy hozzám és a weboldalamhoz álltatok az elejétől a végéig és hogy ez nem változott a fizetés után sem.”</p></blockquote>
+          <figcaption><img src="/reteg/emberek/bekesi-diana.webp" alt="" width="112" height="112" loading="lazy"><span><strong>Dr. Békési Diána</strong>szájsebész, Nádi-Dental Kft.</span></figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <h3>Ár/érték arány nagyon jó</h3>
+          <blockquote><p>„A közösen kidolgozott rendszereink megoldása nagyon hatékonyan, rugalmasan történt. A Webness által létrehozott szoftverek kialakításánál teljes mértékben a megrendelő igényei voltak szem előtt tartva. Nagyon pozitív a hozzáállásuk a tesztidőszak letelte utáni problémák megoldásához. Nem utolsó sorban a munkájuk ár/érték aránya nagyon jó.”</p></blockquote>
+          <figcaption><img src="/reteg/emberek/zelerik-attila.webp" alt="" width="112" height="112" loading="lazy"><span><strong>Zelerik Attila</strong>ügyvezető igazgató, Medor Kft.</span></figcaption>
+        </figure>
+      </li>
+    </ul>
+    <p class="reteg-tovabb"><a href="https://webness.hu/ugyfeleink-velemenye">További vélemények a webness.hu-n</a></p>
+  </div>
+</dialog>
