@@ -1,0 +1,194 @@
+/* TudásTárs – 3. tervváltozat: két ajtó
+   Statikus, JavaScript nélkül. Rendszerbetűk.
+   Sötét, fotóra épülő nyitókép; a tartalom a két közönség szerint kettéosztva. */
+
+:root {
+  --sotet: #1d1c21;
+  --sotet-2: #2a2930;
+  --papir: #ffffff;
+  --kod: #f3f2f5;
+  --tinta: #1d1c21;
+  --halvany: #5c5a64;
+  --vonal: #e2e0e6;
+  --piros: #b92432;
+  --piros-mely: #931b27;
+  --piros-sotet-alapon: #ff7a86;
+  --szurke-sotet-alapon: #c7c5cd;
+
+  --sans: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial, system-ui, sans-serif;
+
+  --szel: 76rem;
+  --kerek: 10px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--papir);
+  color: var(--tinta);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  padding-bottom: 76px; /* mobilos hívássáv helye */
+}
+@media (min-width: 760px) { body { padding-bottom: 0; } }
+
+img, svg { max-width: 100%; display: block; }
+
+h1, h2, h3, h4 { line-height: 1.08; margin: 0 0 .5em; letter-spacing: -.02em; }
+h2 { font-size: clamp(2rem, 7vw, 3.4rem); font-weight: 800; letter-spacing: -.035em; }
+h3 { font-size: 1.45rem; font-weight: 750; }
+h4 { font-size: 1.12rem; font-weight: 700; letter-spacing: -.01em; }
+p { margin: 0 0 1em; }
+
+a { color: var(--piros-mely); text-underline-offset: .2em; }
+a:hover { color: var(--tinta); }
+
+:focus-visible { outline: 3px solid var(--piros); outline-offset: 3px; border-radius: 4px; }
+
+.ugras {
+  position: absolute; left: 1rem; top: -4rem; z-index: 60;
+  background: var(--papir); color: var(--tinta); padding: .6rem 1rem; border-radius: 6px;
+}
+.ugras:focus { top: 1rem; }
+
+.keret { width: 100%; max-width: var(--szel); margin: 0 auto; padding: 0 16px; }
+@media (min-width: 760px) { .keret { padding: 0 32px; } }
+
+/* --- Tervváltozat-sáv --------------------------------------------------- */
+.terv-sav { background: #000; color: #fff; font-size: .88rem; line-height: 1.4; }
+.terv-sav .keret { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .2rem 1.5rem; padding-block: .55rem; }
+.terv-sav p { margin: 0; }
+.terv-sav a { color: #fff; font-weight: 600; }
+.terv-sav :focus-visible { outline-color: #fff; }
+
+/* --- Fejléc ------------------------------------------------------------- */
+.fejlec { background: var(--sotet); color: #fff; border-bottom: 1px solid #3a3940; }
+.fejlec .keret { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; min-height: 60px; }
+.marka { font-size: 1.35rem; font-weight: 800; letter-spacing: -.03em; color: #fff; text-decoration: none; }
+.marka::after { content: "."; color: var(--piros-sotet-alapon); }
+.fejlec nav { display: none; }
+.fejlec__tel { display: inline-flex; align-items: center; gap: .45rem; font-weight: 600; color: #fff; text-decoration: none; }
+.fejlec__tel svg { width: 1.25rem; height: 1.25rem; color: var(--piros-sotet-alapon); }
+.fejlec__tel span { display: none; }
+.fejlec :focus-visible { outline-color: #fff; }
+@media (min-width: 560px) { .fejlec__tel span { display: inline; } }
+@media (min-width: 900px) {
+  .fejlec nav { display: block; margin-left: auto; }
+  .fejlec nav ul { display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0; }
+  .fejlec nav a { color: #fff; text-decoration: none; font-weight: 500; }
+  .fejlec nav a:hover { text-decoration: underline; text-decoration-color: var(--piros-sotet-alapon); text-decoration-thickness: 2px; }
+}
+
+/* --- Gombok ------------------------------------------------------------- */
+.gomb {
+  display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
+  min-height: 48px; padding: .75rem 1.25rem;
+  border: 2px solid var(--piros); border-radius: 999px;
+  font-weight: 650; font-size: 1rem; line-height: 1.2; text-decoration: none;
+}
+.gomb svg { width: 1.2rem; height: 1.2rem; flex: none; }
+.gomb-fo { background: var(--piros); color: #fff; }
+.gomb-fo:hover { background: var(--piros-mely); border-color: var(--piros-mely); color: #fff; }
+.gomb-masod { background: transparent; color: #fff; border-color: #fff; }
+.gomb-masod:hover { background: #fff; color: var(--tinta); }
+.gomb-vonal { background: var(--papir); color: var(--tinta); border-color: var(--tinta); }
+.gomb-vonal:hover { background: var(--tinta); color: #fff; }
+.gomb-kicsi { min-height: 42px; padding: .5rem 1rem; font-size: .92rem; }
+.gombok { display: flex; flex-direction: column; gap: .6rem; margin-top: 1.5rem; }
+@media (min-width: 560px) { .gombok { flex-direction: row; flex-wrap: wrap; } }
+.hivassav .gomb-masod { color: var(--tinta); border-color: var(--tinta); background: var(--papir); }
+
+/* --- Nyitó -------------------------------------------------------------- */
+.nyito { background: var(--sotet); color: #fff; display: grid; }
+.nyito__szoveg { padding: 2rem 16px 2.25rem; }
+.szakma { font-size: .95rem; color: var(--szurke-sotet-alapon); margin-bottom: .9rem; max-width: 30rem; }
+.nyito h1 { font-size: clamp(2.6rem, 11vw, 5.2rem); font-weight: 850; letter-spacing: -.045em; line-height: .98; margin-bottom: .45em; text-wrap: balance; }
+.bevezeto { font-size: 1.12rem; color: #e9e8ec; max-width: 34rem; margin: 0; }
+.nyito__kep { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: 50% 30%; }
+.nyito :focus-visible { outline-color: #fff; }
+@media (min-width: 760px) { .nyito__szoveg { padding: 3rem 32px; } }
+@media (min-width: 900px) {
+  .nyito { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); min-height: 34rem; }
+  .nyito__szoveg {
+    align-self: center;
+    padding: 4rem 3rem 4rem max(32px, calc((100vw - var(--szel)) / 2 + 32px));
+  }
+  .nyito__kep { aspect-ratio: auto; height: 100%; min-height: 34rem; }
+}
+
+/* --- Szakaszok ---------------------------------------------------------- */
+.szakasz { padding: 3rem 0; }
+@media (min-width: 900px) { .szakasz { padding: 5.5rem 0; } }
+.szakasz-kod { background: var(--kod); }
+.szakasz__bev { max-width: 42rem; color: var(--halvany); font-size: 1.08rem; }
+
+/* --- Két ajtó ----------------------------------------------------------- */
+.ajtok { display: grid; gap: 1.5rem; margin-top: 1.75rem; }
+@media (min-width: 900px) { .ajtok { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+.ajto { background: var(--papir); border: 1px solid var(--vonal); border-radius: var(--kerek); overflow: hidden; display: flex; flex-direction: column; }
+.ajto > img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; height: auto; border-bottom: 4px solid var(--piros); }
+.ajto__test { padding: 1.4rem 1.25rem 1.6rem; }
+@media (min-width: 760px) { .ajto__test { padding: 1.75rem 2rem 2rem; } }
+.ajto h3 { font-size: clamp(1.45rem, 4.4vw, 1.9rem); letter-spacing: -.03em; }
+.ajto__test > p { color: var(--halvany); }
+
+.program { padding: 1.1rem 0; border-top: 1px solid var(--vonal); }
+.program p { margin-bottom: .75rem; color: var(--halvany); font-size: 1rem; }
+.program h4 { margin-bottom: .3rem; }
+.program__gombok { display: flex; flex-wrap: wrap; gap: .5rem; }
+
+.korabbi__cim { margin: 1.25rem 0 .5rem; padding-top: 1.1rem; border-top: 1px solid var(--vonal); font-size: .98rem; color: var(--halvany); }
+.korabbi { list-style: none; margin: 0; padding: 0; font-size: .95rem; }
+.korabbi li { display: flex; justify-content: space-between; gap: 1rem; padding: .35rem 0; border-bottom: 1px dotted var(--vonal); }
+.korabbi__ev { flex: none; color: var(--halvany); font-variant-numeric: tabular-nums; }
+
+/* --- Rólunk ------------------------------------------------------------- */
+.rolunk { display: grid; gap: 1.75rem; }
+.szervezetek { display: grid; gap: 1.5rem; }
+.szervezetek article { background: var(--papir); border-radius: var(--kerek); padding: 1.4rem; }
+.szervezetek p { margin: 0; color: var(--halvany); }
+@media (min-width: 760px) { .szervezetek { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1000px) { .rolunk { grid-template-columns: 1fr 1.6fr; column-gap: 3.5rem; align-items: start; } }
+
+/* --- Kapcsolat ---------------------------------------------------------- */
+.szakasz-sotet { background: var(--sotet); color: #fff; }
+.szakasz-sotet .szakasz__bev { color: var(--szurke-sotet-alapon); }
+.szakasz-sotet a { color: #fff; }
+.szakasz-sotet :focus-visible { outline-color: #fff; }
+.kapcsolat { display: grid; gap: 2rem; margin-top: 1.75rem; }
+@media (min-width: 900px) { .kapcsolat { grid-template-columns: 1.4fr 1fr 1fr; gap: 3rem; } }
+.kapcsolat__eleres { display: grid; gap: .7rem; align-content: start; }
+.kapcsolat__nagy {
+  display: inline-flex; align-items: center; gap: .7rem;
+  font-size: clamp(1.45rem, 5.6vw, 2.1rem); font-weight: 800; letter-spacing: -.03em; text-decoration: none;
+}
+.kapcsolat__nagy svg { width: 1.5rem; height: 1.5rem; color: var(--piros-sotet-alapon); flex: none; }
+.kapcsolat__nagy:hover { text-decoration: underline; text-decoration-color: var(--piros-sotet-alapon); }
+.kozosseg { display: flex; flex-wrap: wrap; gap: .4rem 1.5rem; list-style: none; margin: .6rem 0 0; padding: 0; }
+.hely { display: flex; gap: .9rem; }
+.hely svg { width: 1.5rem; height: 1.5rem; flex: none; color: var(--piros-sotet-alapon); margin-top: .1rem; }
+.hely h3 { font-size: 1.15rem; margin-bottom: .3rem; }
+.hely p { margin-bottom: .4rem; color: var(--szurke-sotet-alapon); }
+.hely a { font-weight: 600; }
+
+/* --- Lábléc ------------------------------------------------------------- */
+.lablec { background: var(--sotet); color: var(--szurke-sotet-alapon); border-top: 1px solid #3a3940; padding: 1.5rem 0; font-size: .9rem; }
+.lablec .keret { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 2rem; }
+.lablec p { margin: 0; }
+.lablec a { color: #fff; }
+.lablec :focus-visible { outline-color: #fff; }
+.lablec__keszito { margin-left: 1.25rem; }
+
+/* --- Mobilos hívássáv --------------------------------------------------- */
+.hivassav {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+  display: flex; gap: .6rem; padding: .6rem 12px calc(.6rem + env(safe-area-inset-bottom));
+  background: rgba(255, 255, 255, .97); border-top: 1px solid var(--vonal);
+}
+.hivassav .gomb { flex: 1; }
+@media (min-width: 760px) { .hivassav { display: none; } }

@@ -1,30 +1,36 @@
-# tudastars.hu – statikus összefoglaló oldal
+# tudastars.hu – tervváltozatok
 
-A TudásTárs csoport egyoldalas, statikus oldala. A programok egy periódusos rendszer
-elemeiként jelennek meg; amelyiknek saját weboldala van (TudásRészecskék, TudásPresszó),
-oda visz tovább. Cloudflare Pages szolgálja ki a GitHub-repóból; build-lépés nincs,
-a `public/` mappa tartalma megy ki változtatás nélkül.
+A TudásTárs csoport új, statikus oldalának tervváltozatai, egy választó oldalról elérve.
+Cloudflare Pages szolgálja ki a GitHub-repóból; build-lépés nincs, a `public/` mappa tartalma
+megy ki változtatás nélkül. Az egész oldalt jelszó védi (lásd lent).
 
 ## Felépítés
 
 ```
 public/
-  index.html            az oldal; minden program leírása a csempéje melletti .el__detail blokkban van
-  assets/css/style.css  stílusok (színek: a régi logó pirosa #B92432 és grafitja #26252B)
-  assets/js/main.js     mobilmenü, a programtáblázat kiolvasója és szűrője
-  assets/img/           képek WebP-ben (a GitHub Actions hozza át őket, lásd lent)
-  assets/fonts/         Archivo és Source Serif 4 (saját tárhelyen, magyar karakterkészletre szűkítve)
+  index.html            választó oldal (előnézeti képek: valaszto/)
+  valtozat-1/           1. Periódusos rendszer – JavaScript nélkül, CSS-es kiválasztással
+  valtozat-2/           2. Kockás füzet – piros margó, időrendi munkák
+  valtozat-3/           3. Két ajtó – sötét, fotós, közönség szerint kettéosztva
+  jelenlegi/            az előző kör változata (saját betűk + JS: assets/css, assets/js, assets/fonts)
+  assets/img/           közös képek WebP-ben (a nagyok mellett -800 méretű változat is)
   favicon.svg
-  _headers              Cloudflare Pages fejlécek (noindex a teszt idejére, gyorsítótárazás)
-scripts/kepek.txt       a régi oldalról átemelendő képek listája
+  robots.txt            Disallow: /
+  _headers              X-Robots-Tag: noindex, nofollow
+functions/_middleware.js  HTTP Basic Auth az egész oldal előtt (gyorsweb-minta)
+scripts/kepek.txt         a régi oldalról átemelendő képek listája
 .github/workflows/kepek.yml
 ```
 
-## Új program felvétele
+A `valtozat-1..3` a `gyorsweb` repó demószabályai szerint készült: egy HTML és egy CSS
+változatonként, rendszerbetűk, JavaScript nélkül, mobilon fix Hívás/Email sáv,
+Lighthouse mobil (helyben mérve): teljesítmény, akadálymentesség és jó gyakorlatok 100.
 
-1. Másolj le egy `<li class="cell">` blokkot az `index.html`-ben, és írd át a csempét és a leírást.
-2. A `data-cat` értéke: `kids`, `public`, `training` vagy `research`.
-3. A rácsbeli helyét a `grid-area` adja; új hely esetén a `style.css` `grid-template-areas` részét is bővíteni kell.
+## Jelszavas védelem
+
+A `functions/_middleware.js` a Cloudflare Pages `DEMO_USER` és `DEMO_PASS` környezeti
+változóival dolgozik (titkosítva, production és preview). Ha valamelyik hiányzik, az oldal
+503-at ad. Élesítéskor a middleware törlendő.
 
 ## Képek
 
@@ -40,7 +46,10 @@ a `public/assets/img/` mappába.
 
 ## Élesítés előtt
 
-- A `noindex` (HTML meta és `_headers`) törlendő.
+- A kiválasztott változat kerül a gyökérbe; a többi, a választó és a `functions/` törlendő.
+- A `noindex, nofollow` (HTML meta, `_headers`, `robots.txt`) törlendő.
+- Az ügyfél írásban jóváhagyja a fotók és a teljes tartalom felhasználását.
+- Az „egyeztetendő” HTML-kommentek és az adatkezelési tájékoztató helye kitöltendő.
 - A domain DNS-ét át kell vinni a Cloudflare-re, figyelve a levelezés (MX, SPF) rekordjaira.
 
 ## Helyi előnézet

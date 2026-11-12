@@ -3,355 +3,142 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TudásTárs – tudománykommunikáció és felsőoktatás-kutatás</title>
-  <meta name="description" content="A TudásTárs csoport – a Tudástársadalom Alapítvány és a TudásTárs Kft. – ismeretterjesztő programokat szervez, kutatóknak képzést tart, és a magyar felsőoktatást kutatja.">
-  <!-- Tesztverzió: amíg a régi oldal él, ne indexelje a kereső -->
-  <meta name="robots" content="noindex">
-  <meta property="og:title" content="TudásTárs – tudomány óvodától az egyetemig">
-  <meta property="og:description" content="Ismeretterjesztés, tudománykommunikációs képzés és felsőoktatás-kutatás 2002 óta.">
-  <meta property="og:locale" content="hu_HU">
-  <meta property="og:type" content="website">
+  <meta name="robots" content="noindex, nofollow">
+  <title>TudásTárs – tervváltozatok</title>
   <meta name="theme-color" content="#26252b">
-  <script>document.documentElement.classList.add("js")</script>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="/assets/fonts/archivo-hu.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/sourceserif-hu.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "TudásTárs",
-    "url": "https://tudastars.hu/",
-    "email": "info@tudastars.hu",
-    "telephone": "+36 20 312 7378",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Bajcsy-Zsilinszky út 33. 3. emelet 10.",
-      "postalCode": "1065",
-      "addressLocality": "Budapest",
-      "addressCountry": "HU"
-    },
-    "sameAs": [
-      "http://www.tudaspresszo.hu/",
-      "https://tudasreszecskek.webnode.hu/",
-      "https://www.facebook.com/tudaspresszo/",
-      "https://www.youtube.com/user/thesciencecafe"
-    ]
-  }
-  </script>
+  <style>
+    :root {
+      --papir: #ffffff; --kod: #f4f3f5; --tinta: #26252b; --halvany: #5c5a64; --vonal: #dedce2;
+      --piros: #b92432; --piros-mely: #931b27;
+      --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0; background: var(--kod); color: var(--tinta); font: 1.0625rem/1.6 var(--sans); }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: var(--piros-mely); text-underline-offset: .2em; }
+    :focus-visible { outline: 3px solid var(--piros); outline-offset: 3px; border-radius: 4px; }
+    .keret { max-width: 72rem; margin: 0 auto; padding: 0 16px; }
+    @media (min-width: 760px) { .keret { padding: 0 32px; } }
+
+    .fej { background: var(--tinta); color: #fff; padding: 2.5rem 0 2.25rem; }
+    .fej p { margin: 0; }
+    .marka { display: inline-flex; align-items: center; gap: .55rem; font-weight: 700; margin-bottom: 1.5rem !important; }
+    .marka span { display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 4px; background: var(--piros); font-size: .95rem; }
+    h1 { font-size: clamp(2rem, 6vw, 3rem); line-height: 1.05; letter-spacing: -.02em; margin: 0 0 .75rem; }
+    .fej .bev { max-width: 44rem; color: #d6d4dc; font-size: 1.1rem; }
+
+    main { padding: 2rem 0 3rem; }
+    .valtozatok { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.25rem; }
+    @media (min-width: 900px) { .valtozatok { grid-template-columns: 1fr 1fr; gap: 1.75rem; } }
+    .valtozat { position: relative; background: var(--papir); border: 1px solid var(--vonal); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; }
+    .valtozat:hover { border-color: var(--tinta); }
+    .kepek { position: relative; background: #e9e8ec; padding: 14px 14px 0; }
+    .kepek .asztali { border-radius: 6px 6px 0 0; box-shadow: 0 0 0 1px rgba(0,0,0,.08); }
+    .kepek .mobil { position: absolute; right: 22px; bottom: -14px; width: 26%; border-radius: 10px; border: 4px solid var(--tinta); box-shadow: 0 6px 18px -6px rgba(0,0,0,.45); }
+    .test { padding: 1.5rem 1.25rem 1.4rem; display: flex; flex-direction: column; flex: 1; }
+    @media (min-width: 760px) { .test { padding: 1.6rem 1.6rem 1.5rem; } }
+    .szam { font-size: .9rem; font-weight: 600; color: var(--halvany); margin: 0 0 .2rem; }
+    h2 { font-size: 1.5rem; line-height: 1.15; margin: 0 0 .5rem; letter-spacing: -.01em; }
+    .test p { margin: 0 0 1rem; }
+    .test .leir { color: var(--halvany); flex: 1; }
+    .megnez {
+      align-self: flex-start; display: inline-flex; align-items: center; min-height: 46px;
+      padding: .65rem 1.15rem; border-radius: 4px; background: var(--piros); color: #fff;
+      font-weight: 650; text-decoration: none;
+    }
+    .megnez:hover { background: var(--piros-mely); }
+    /* az egész kártya kattintható, a gomb a fő link */
+    .megnez::after { content: ""; position: absolute; inset: 0; }
+    .valtozat--elozo { background: transparent; border-style: dashed; }
+    .valtozat--elozo .megnez { background: var(--papir); color: var(--tinta); border: 2px solid var(--tinta); }
+    .valtozat--elozo .megnez:hover { background: var(--tinta); color: #fff; }
+
+    .kozos { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--vonal); color: var(--halvany); font-size: 1rem; }
+    .kozos h2 { font-size: 1.15rem; color: var(--tinta); }
+    .kozos ul { margin: 0; padding-left: 1.2rem; }
+    .lab { padding: 1.5rem 0 2rem; font-size: .9rem; color: var(--halvany); }
+  </style>
 </head>
 <body>
-  <a class="skip" href="#tartalom">Ugrás a tartalomra</a>
-
-  <header class="site-header">
-    <div class="wrap site-header__inner">
-      <a class="brand" href="/" aria-label="TudásTárs – főoldal">
-        <span class="brand__mark" aria-hidden="true">Tt</span>
-        <span class="brand__name" aria-hidden="true"><b>Tudás</b>Társ</span>
-      </a>
-
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="fomenu">Menü</button>
-
-      <nav class="site-nav" id="fomenu" aria-label="Főmenü">
-        <ul>
-          <li><a href="#programok">Programok</a></li>
-          <li><a href="#rolunk">Rólunk</a></li>
-          <li><a href="#kapcsolat">Kapcsolat</a></li>
-        </ul>
-      </nav>
+  <header class="fej">
+    <div class="keret">
+      <p class="marka"><span aria-hidden="true">Tt</span>TudásTárs</p>
+      <h1>Tervváltozatok az új weboldalhoz</h1>
+      <p class="bev">Három irány ugyanarra a tartalomra, plusz az előző kör változata összehasonlításnak. Érdemes mindegyiket mobilon is megnézni. Írják meg, melyik tetszik, vagy mit vennének át az egyikből a másikba.</p>
     </div>
   </header>
 
-  <main id="tartalom">
-
-    <section class="hero" aria-labelledby="hero-cim">
-      <div class="wrap hero__inner">
-        <h1 id="hero-cim">Tudomány óvodától az egyetemig</h1>
-        <div class="hero__aside">
-          <p class="lead">A TudásTárs csoport ismeretterjesztő programokat szervez gyerekeknek és felnőtteknek, kommunikációs képzést tart kutatóknak, és a magyar felsőoktatást kutatja. A csoportot a 2002 óta működő Tudástársadalom Alapítvány és a TudásTárs Kft. alkotja.</p>
-          <p class="actions">
-            <a class="btn btn--solid" href="#programok">Programjaink</a>
-            <a class="btn btn--line" href="#kapcsolat">Kapcsolat</a>
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="table-section" id="programok" aria-labelledby="programok-cim">
-      <div class="wrap">
-        <h2 id="programok-cim" class="vh">Programjaink és szolgáltatásaink</h2>
-
-        <div class="ptable" data-filter="">
-
-          <div class="ptable__key" role="group" aria-label="Szűrés közönség szerint">
-              <button type="button" class="key" data-cat="kids" aria-pressed="false"><span class="key__swatch"></span>Gyerekeknek és iskoláknak</button>
-              <button type="button" class="key" data-cat="public" aria-pressed="false"><span class="key__swatch"></span>Ismeretterjesztés</button>
-              <button type="button" class="key" data-cat="training" aria-pressed="false"><span class="key__swatch"></span>Képzés és utánpótlás</button>
-              <button type="button" class="key" data-cat="research" aria-pressed="false"><span class="key__swatch"></span>Kutatás és PR</button>
-              <span class="key key--static"><svg class="key__web" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3h7v7M13 3 4 12" fill="none" stroke="currentColor" stroke-width="2"/></svg>Saját weboldal</span>
-            </div>
-
-          <div class="ptable__stage">
-
-
-            <div class="ptable__info" id="programinfo" aria-live="polite">
-              <div class="info__text">
-                <h3 class="info__title">Tizenkét program, négy közönség</h3>
-                <p class="info__meta"></p>
-                <p class="info__desc">Válasszon egy elemet a táblázatból, és itt olvashatja, miről szól. A jelölés azt mutatja, kinek szól a program; a nyíllal jelölteknek saját weboldaluk is van.</p>
-                <p class="info__links"></p>
-              </div>
-              <figure class="info__fig">
-                <img class="info__img" src="/assets/img/cseppek-2.webp" alt="Két kislány nagyítóval vizsgálódik egy TudásCseppek foglalkozáson" width="905" height="960">
-              </figure>
-            </div>
+  <main>
+    <div class="keret">
+      <ul class="valtozatok">
+        <li class="valtozat">
+          <div class="kepek">
+            <img class="asztali" src="valaszto/v1-asztali.webp" alt="" width="720" height="450">
+            <img class="mobil" src="valaszto/v1-mobil.webp" alt="" width="195" height="422">
           </div>
+          <div class="test">
+            <p class="szam">1. változat</p>
+            <h2>Periódusos rendszer</h2>
+            <p class="leir">A tetszett táblázat továbbvitele a logó piros és grafit színeivel. Egy elemre kattintva megjelenik a program leírása és a saját oldala; mobilon a leírás a képernyő tetejére tapad, amíg a táblázatot görgeti.</p>
+            <a class="megnez" href="valtozat-1/">Megnézem az 1. változatot</a>
+          </div>
+        </li>
+        <li class="valtozat">
+          <div class="kepek">
+            <img class="asztali" src="valaszto/v2-asztali.webp" alt="" width="720" height="450">
+            <img class="mobil" src="valaszto/v2-mobil.webp" alt="" width="195" height="422">
+          </div>
+          <div class="test">
+            <p class="szam">2. változat</p>
+            <h2>Kockás füzet</h2>
+            <p class="leir">Iskolai füzetlap piros margóval. Elöl a két ma is futó program és a szolgáltatások, utána időrendben minden, amit 2002 óta csináltak, az évszámok a margóban.</p>
+            <a class="megnez" href="valtozat-2/">Megnézem a 2. változatot</a>
+          </div>
+        </li>
+        <li class="valtozat">
+          <div class="kepek">
+            <img class="asztali" src="valaszto/v3-asztali.webp" alt="" width="720" height="450">
+            <img class="mobil" src="valaszto/v3-mobil.webp" alt="" width="195" height="422">
+          </div>
+          <div class="test">
+            <p class="szam">3. változat</p>
+            <h2>Két ajtó</h2>
+            <p class="leir">Sötét, fotós nyitókép, utána két ajtó: gyerekeknek és érdeklődőknek, illetve kutatóknak és intézményeknek. Mindenki először a neki szóló programokat látja.</p>
+            <a class="megnez" href="valtozat-3/">Megnézem a 3. változatot</a>
+          </div>
+        </li>
+        <li class="valtozat valtozat--elozo">
+          <div class="kepek">
+            <img class="asztali" src="valaszto/v0-asztali.webp" alt="" width="720" height="450">
+            <img class="mobil" src="valaszto/v0-mobil.webp" alt="" width="195" height="422">
+          </div>
+          <div class="test">
+            <p class="szam">Előző kör</p>
+            <h2>Periódusos rendszer, első változat</h2>
+            <p class="leir">Amit legutóbb láttak, a visszajelzés utáni színekkel. Saját betűtípusokkal és egy kis JavaScripttel készült, ezért szélesebb a fejléce és animált a táblázata.</p>
+            <a class="megnez" href="jelenlegi/">Megnézem az előző változatot</a>
+          </div>
+        </li>
+      </ul>
 
-          <ul class="ptable__grid">
-            <!-- Gyerekeknek és iskoláknak -->
-            <li class="cell" style="grid-area: tr">
-              <button class="el" type="button" data-cat="kids" style="--i: 8" aria-pressed="false" aria-controls="programinfo">
-                <span class="el__year" aria-hidden="true">2019</span>
-                <svg class="el__web" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3h7v7M13 3 4 12" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-                <span class="el__sym" aria-hidden="true">Tr</span>
-                <span class="el__name" aria-hidden="true">Tudás+&#8203;Részecskék</span>
-                <span class="vh">Tudás+Részecskék, 2019 óta, saját weboldallal</span>
-              </button>
-              <div class="el__detail" hidden data-img="/assets/img/reszecskek-2.webp" data-alt="Ragacsos kísérleti anyag folyik egy gyerek kezéről">
-                <h3 class="info__title">Tudás+Részecskék a Szakicska-házban</h3>
-                <p class="info__meta"><span class="meta__when">2019 óta</span><span class="meta__cat">Gyerekeknek és iskoláknak</span></p>
-                <p class="info__desc">Kísérletező foglalkozások óvodásoknak és kisiskolásoknak az Alkotó Részecskékkel közösen, háztartásban is megtalálható anyagokkal.</p>
-                <p class="info__links"><a class="btn btn--solid btn--small" href="https://tudasreszecskek.webnode.hu/">A TudásRészecskék weboldala</a></p>
-              </div>
-            </li>
-            <li class="cell" style="grid-area: tc">
-              <button class="el" type="button" data-cat="kids" style="--i: 3" aria-pressed="false" aria-controls="programinfo">
-                <span class="el__year" aria-hidden="true">2010</span>
-                <span class="el__sym" aria-hidden="true">Tc</span>
-                <span class="el__name" aria-hidden="true">TudásCseppek</span>
-                <span class="vh">TudásCseppek az óvodákban, 2010</span>
-              </button>
-              <div class="el__detail" hidden data-img="/assets/img/cseppek.webp" data-alt="Óvodások figyelnek egy kutyát egy TudásCseppek foglalkozáson">
-                <h3 class="info__title">TudásCseppek az óvodákban</h3>
-                <p class="info__meta"><span class="meta__when">2010</span><span class="meta__cat">Gyerekeknek és iskoláknak</span></p>
-                <p class="info__desc">Uniós pályázatban kidolgozott foglalkozássorozat óvodásoknak. Újszerű módszertanát kutatók közreműködésével alakítottuk ki.</p>
-                <p class="info__links"><a class="btn btn--line btn--small" href="https://www.facebook.com/Tudascseppekbolt/">Tudáscseppek bolt a Facebookon</a></p>
-              </div>
-            </li>
-            <li class="cell" style="grid-area: tf">
-              <button class="el" type="button" data-cat="kids" style="--i: 4" aria-pressed="false" aria-controls="programinfo">
-                <span class="el__year" aria-hidden="true">2010</span>
-                <span class="el__sym" aria-hidden="true">Tf</span>
-                <span class="el__name" aria-hidden="true">Tudás&shy;feltöltés</span>
-                <span class="vh">Tudásfeltöltés középiskolás vetélkedő, 2010</span>
-              </button>
-              <div class="el__detail" hidden data-img="/assets/img/tarsadalom.webp" data-alt="Videókamerával filmeznek egy laboratóriumi mérőeszközt">
-                <h3 class="info__title">Tudásfeltöltés középiskolás vetélkedő és médiafoglalkozás</h3>
-                <p class="info__meta"><span class="meta__when">2010</span><span class="meta__cat">Gyerekeknek és iskoláknak</span></p>
-                <p class="info__desc">Országos középiskolás verseny természettudományos kisfilmek készítésére, médiafoglalkozással. Négyszer rendeztük meg.</p>
-              </div>
-            </li>
-
-            <!-- Ismeretterjesztés -->
-            <li class="cell" style="grid-area: tp">
-              <button class="el" type="button" data-cat="public" style="--i: 1" aria-pressed="false" aria-controls="programinfo">
-                <span class="el__year" aria-hidden="true">2009</span>
-                <svg class="el__web" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3h7v7M13 3 4 12" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-                <span class="el__sym" aria-hidden="true">Tp</span>
-                <span class="el__name" aria-hidden="true">TudásPresszó</span>
-                <span class="vh">TudásPresszó, 2009 óta, saját weboldallal</span>
-              </button>
-              <div class="el__detail" hidden data-img="/assets/img/kapcsolat.webp" data-alt="TudásPresszó-csésze és kiadványok egy kávézóasztalon">
-                <h3 class="info__title">TudásPresszó</h3>
-                <p class="info__meta"><span class="meta__when">2009 óta</span><span class="meta__cat">Ismeretterjesztés</span></p>
-                <p class="info__desc">Az első magyar science café. Fábri György vendégei kiváló kutatók, akik a tudomány újdonságairól beszélgetnek a közönséggel, a társadalom szemszögéből.</p>
-                <p class="info__links">
-                  <a class="btn btn--solid btn--small" href="http://www.tudaspresszo.hu/">A TudásPresszó weboldala</a>
-                  <a class="btn btn--line btn--small" href="https://www.youtube.com/user/thesciencecafe">Videók a YouTube-on</a>
-                </p>
-              </div>
-            </li>
-            <li class="cell" style="grid-area: es">
-              <button class="el" type="button" data-cat="public" style="--i: 9" aria-pressed="false" aria-controls="programinfo">
-                <span class="el__year" aria-hidden="true">lezárult</span>
-                <span class="el__sym" aria-hidden="true">Es</span>
-                <span class="el__name" aria-hidden="true">Elemi sztárok</span>
-                <span class="vh">Elemi sztárok, lezárult projekt</span>
-              </button>
-              <div class="el__detail" hidden>
-                <h3 class="info__title">Elemi sztárok</h3>
-                <p class="info__meta"><span class="meta__when">Lezárult</span><span class="meta__cat">Ismeretterjesztés</span></p>
-                <p class="info__desc">Webes médiaprojekt, amely kutatók közreműködésével, rövidfilmeken mutatta be a periódusos rendszert. Ez a táblázat is innen kölcsönzi a formáját.</p>
-              </div>
-            </li>
-            <li class="cell" style="grid-area: tz">
-              <button class="el" type="button" data-cat="public" style="--i: 5" aria-pressed="false" aria-controls="programinfo">
-                <span class="el__year" aria-hidden="true">2013–15</span>
-                <span class="el__sym" aria-hidden="true">Tz</span>
-                <span class="el__name" aria-hidden="true">Tezaurusz XXI</span>
-                <span class="vh">Tezaurusz XXI, 2013–2015</span>
-              </button>
-              <div class="el__detail" hidden>
-                <h3 class="info__title">Tudomány mindenkinek – Tezaurusz XXI</h3>
-                <p class="info__meta"><span class="meta__when">2013–2015</span><span class="meta__cat">Ismeretterjesztés</span></p>
-                <p class="info__desc">Ismeretterjesztő honlap a megújuló energiák és a fenntarthatóság hazai eredményeiről.</p>
-              </div>
-            </li>
-
-            <!-- Képzés és utánpótlás -->
-            <li class="cell" style="grid-area: tk">
-              <button class="el" type="button" data-cat="training" style="--i: 0" aria-pressed="false" aria-controls="programinfo">
-                <span class="el__year" aria-hidden="true">2007</span>
-                <span class="el__sym" aria-hidden="true">Tk</span>
-                <span class="el__name" aria-hidden="true">Tréningek kutatóknak</span>
-                <span class="vh">Tudománykommunikációs képzés és tréningek, 2007 óta</span>
-              </button>
-              <div class="el__detail" hidden>
-                <h3 class="info__title">Tudománykommunikációs képzés, tréningek</h3>
-                <p class="info__meta"><span class="meta__when">2007 óta</span><span class="meta__cat">Képzés és utánpótlás</span></p>
-                <p class="info__desc">Képzések kutatóknak arról, hogyan beszéljenek hatékonyan az eredményeikről a nyilvánosság előtt.</p>
-                <p class="info__links"><a class="btn btn--line btn--small" href="mailto:info@tudastars.hu?subject=Tudom%C3%A1nykommunik%C3%A1ci%C3%B3s%20k%C3%A9pz%C3%A9s">Képzést kérek</a></p>
-              </div>
-            </li>
-            <li class="cell" style="grid-area: pe">
-              <button class="el" type="button" data-cat="training" style="--i: 7" aria-pressed="false" aria-controls="programinfo">
-                <span class="el__year" aria-hidden="true">2015</span>
-                <span class="el__sym" aria-hidden="true">Pe</span>
-                <span class="el__name" aria-hidden="true">Pannon Egyetem</span>
-                <span class="vh">Tudománykommunikációs képzés a Pannon Egyetemen, 2015</span>
-              </button>
-              <div class="el__detail" hidden>
-                <h3 class="info__title">Tudománykommunikációs képzés a Pannon Egyetemen</h3>
-                <p class="info__meta"><span class="meta__when">2015</span><span class="meta__cat">Képzés és utánpótlás</span></p>
-                <p class="info__desc">A TÁMOP-4.2.1 program keretében tudománykommunikációs és innovációmenedzsment-képzés az egyetem hallgatóinak.</p>
-              </div>
-            </li>
-            <li class="cell" style="grid-area: lg">
-              <button class="el" type="button" data-cat="training" style="--i: 2" aria-pressed="false" aria-controls="programinfo">
-                <span class="el__year" aria-hidden="true">2009–11</span>
-                <span class="el__sym" aria-hidden="true">Lg</span>
-                <span class="el__name" aria-hidden="true">Lángész</span>
-                <span class="vh">Lángész projekt, 2009–2011</span>
-              </button>
-              <div class="el__detail" hidden>
-                <h3 class="info__title">Lángész projekt</h3>
-                <p class="info__meta"><span class="meta__when">2009–2011</span><span class="meta__cat">Képzés és utánpótlás</span></p>
-                <p class="info__desc">TÁMOP-pályázaton elnyert projekt a műszaki és természettudományos kutatói utánpótlás támogatására.</p>
-              </div>
-            </li>
-
-            <!-- Kutatás és PR -->
-            <li class="cell" style="grid-area: hd">
-              <button class="el" type="button" data-cat="research" style="--i: 6" aria-pressed="false" aria-controls="programinfo">
-                <span class="el__year" aria-hidden="true">2014-től</span>
-                <span class="el__sym" aria-hidden="true">Hd</span>
-                <span class="el__name" aria-hidden="true">HVG Diploma</span>
-                <span class="vh">HVG Diploma melléklet, 2014-től</span>
-              </button>
-              <div class="el__detail" hidden>
-                <h3 class="info__title">HVG Diploma melléklet</h3>
-                <p class="info__meta"><span class="meta__when">2014-től</span><span class="meta__cat">Kutatás és PR</span></p>
-                <p class="info__desc">A HVG felsőoktatási rangsorainak szakmai előkészítése: hallgatói, oktatói és integrált rangsorok.</p>
-              </div>
-            </li>
-            <li class="cell" style="grid-area: ek">
-              <button class="el" type="button" data-cat="research" style="--i: 10" aria-pressed="false" aria-controls="programinfo">
-                <span class="el__year" aria-hidden="true">szolgáltatás</span>
-                <span class="el__sym" aria-hidden="true">Ek</span>
-                <span class="el__name" aria-hidden="true">Elméleti kutatások</span>
-                <span class="vh">Elméleti kutatások, szolgáltatás</span>
-              </button>
-              <div class="el__detail" hidden>
-                <h3 class="info__title">Elméleti kutatások</h3>
-                <p class="info__meta"><span class="meta__when">Szolgáltatás</span><span class="meta__cat">Kutatás és PR</span></p>
-                <p class="info__desc">Kutatások a felsőoktatás és a tudománykommunikáció területén, megrendelésre.</p>
-                <p class="info__links"><a class="btn btn--solid btn--small" href="mailto:info@tudastars.hu?subject=Elm%C3%A9leti%20kutat%C3%A1sok">Ajánlatot kérek</a></p>
-              </div>
-            </li>
-            <li class="cell" style="grid-area: nm">
-              <button class="el" type="button" data-cat="research" style="--i: 11" aria-pressed="false" aria-controls="programinfo">
-                <span class="el__year" aria-hidden="true">szolgáltatás</span>
-                <span class="el__sym" aria-hidden="true">Nm</span>
-                <span class="el__name" aria-hidden="true">Nyilvánosság&shy;menedzselés</span>
-                <span class="vh">Nyilvánosság-menedzselés, szolgáltatás</span>
-              </button>
-              <div class="el__detail" hidden>
-                <h3 class="info__title">Nyilvánosság-menedzselés</h3>
-                <p class="info__meta"><span class="meta__when">Szolgáltatás</span><span class="meta__cat">Kutatás és PR</span></p>
-                <p class="info__desc">Kutatóhelyek és felsőoktatási intézmények társadalmi pozicionálásának és tudománykommunikációjának támogatása.</p>
-                <p class="info__links"><a class="btn btn--solid btn--small" href="mailto:info@tudastars.hu?subject=Nyilv%C3%A1noss%C3%A1g-menedzsel%C3%A9s">Ajánlatot kérek</a></p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="about" id="rolunk" aria-labelledby="rolunk-cim">
-      <div class="wrap">
-        <div class="about__intro">
-          <h2 id="rolunk-cim">Rólunk</h2>
-          <p>Elméleti és gyakorlati munkánk eredményei közvetlenül hasznosulnak a magyar tudományban és felsőoktatásban, különösen partnerintézményeink társadalmi pozicionálásában és tudománykommunikációjában.</p>
-        </div>
-
-        <div class="about__orgs">
-          <article class="org">
-            <h3>Tudástársadalom Alapítvány</h3>
-            <p>2002 óta működő közhasznú alapítvány. Elméleti kutatásokat végez, és szakmai tudománykommunikációval foglalkozik: ismeretterjesztéssel, társadalmi felelősségvállalással, valamint kutatás-fejlesztési eredmények és innovatív termékek bemutatásával. Ez az alapítvány tartja fenn a TudásPresszót is.</p>
-          </article>
-          <article class="org">
-            <h3>TudásTárs Kft.</h3>
-            <p>Teljes nevén TudásTárs Tudományos PR, Kommunikációs és Kutatási Kft. Tudományos PR-ral, kommunikációval és kutatással foglalkozik, partnerintézményekkel együttműködve.</p>
-          </article>
-        </div>
-
-        <div class="photos">
-          <figure>
-            <img src="/assets/img/reszecskek.webp" alt="Két fiú egy vízzel teli zacskóval kísérletezik a szabadban" loading="lazy" decoding="async" width="1600" height="1004">
-            <figcaption>Tudás+Részecskék</figcaption>
-          </figure>
-          <figure>
-            <img src="/assets/img/tarsadalom.webp" alt="Videókamerával filmeznek egy laboratóriumi mérőeszközt" loading="lazy" decoding="async" width="1600" height="1071">
-            <figcaption>Tudomány a társadalomban</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
+      <section class="kozos" aria-labelledby="kozos-cim">
+        <h2 id="kozos-cim">Ami mindegyikben ugyanaz</h2>
+        <ul>
+          <li>A tartalom: bemutatkozás, programok, Rólunk, elérhetőség. Az elavult események, blog és partnerlogók kimaradtak.</li>
+          <li>A Tudás+Részecskék és a TudásPresszó a saját weboldalára visz tovább.</li>
+          <li>Mobilon az alján mindig ott a Hívás és az Email gomb.</li>
+          <li>A keresők nem indexelik, és jelszó védi, amíg nem döntenek.</li>
+        </ul>
+      </section>
+    </div>
   </main>
 
-  <footer class="site-footer" id="kapcsolat" aria-labelledby="kapcsolat-cim">
-    <div class="wrap">
-      <h2 id="kapcsolat-cim">Kapcsolat</h2>
-      <div class="contact">
-        <div>
-          <h3>Írjon vagy hívjon</h3>
-          <p><a class="contact__big" href="mailto:info@tudastars.hu">info@tudastars.hu</a></p>
-          <p><a class="contact__big" href="tel:+36203127378">+36 20 312 7378</a></p>
-        </div>
-        <div>
-          <h3>Budapesti iroda</h3>
-          <address>1065 Budapest,<br>Bajcsy-Zsilinszky út 33.<br>3. emelet 10.</address>
-        </div>
-        <div>
-          <h3>Csömör</h3>
-          <address>2141 Csömör,<br>Kacsóh P. u. 1.</address>
-        </div>
-        <div>
-          <h3>Kövessen minket</h3>
-          <ul class="social">
-            <li><a href="https://www.facebook.com/tudaspresszo/">TudásPresszó a Facebookon</a></li>
-            <li><a href="https://www.youtube.com/user/thesciencecafe">YouTube-csatornánk</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="site-footer__bottom">
-        <p>© 2026 TudásTárs</p>
-        <p>Készítette: <a href="https://webness.hu/">Webness</a></p>
-      </div>
+  <footer class="lab">
+    <div class="keret">
+      <p>Készítette: <a href="https://webness.hu/">Webness</a></p>
     </div>
   </footer>
-
-  <script src="/assets/js/main.js" defer></script>
 </body>
 </html>

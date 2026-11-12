@@ -131,6 +131,25 @@ p { margin: 0 0 1em; }
 }
 .skip:focus { top: 1rem; }
 
+/* ---------- Tervváltozat-sáv ---------- */
+
+.terv-sav {
+  background: var(--ink);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: .88rem;
+}
+.terv-sav .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: .25rem 1.5rem;
+  padding-block: .55rem;
+}
+.terv-sav p { margin: 0; }
+.terv-sav a { color: #fff; font-weight: 600; }
+.terv-sav :focus-visible { outline-color: #fff; }
+
 /* ---------- Gombok ---------- */
 
 .btn {
