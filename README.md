@@ -8,8 +8,7 @@ megy ki változtatás nélkül. Az egész oldalt egy belépőkód (PIN) védi (l
 
 ```
 public/
-  index.html            választó oldal: változatok és a „Mi tetszik?” kérdések
-  koszonom/             a kérdések beküldése utáni oldal
+  index.html            választó oldal: a változatok; a kártyákon az is, hány dolgot jelölt meg tetszőnek
   valtozat-1/           1. Periódusos rendszer – JavaScript nélkül, CSS-es kiválasztással
   valtozat-2/           2. Kockás füzet – piros margó, időrendi munkák
   valtozat-3/           3. Két ajtó – sötét, fotós, közönség szerint kettéosztva
@@ -22,7 +21,6 @@ public/
   robots.txt            Disallow: /
   _headers              X-Robots-Tag: noindex, nofollow
 functions/_middleware.js  PIN-kódos belépés az egész oldal előtt (30 napos süti)
-functions/api/valasz.js   a „Mi tetszik?” válaszok mentése Workers KV-ba
 functions/api/jelzes.js   a „Tetszik ez a rész?” jelzések (tetszik, miért, másképp, záró válasz, hívás) mentése
 scripts/kepek.txt         a régi oldalról átemelendő képek listája
 .github/workflows/kepek.yml
@@ -46,10 +44,10 @@ Rossz kódnál 0,8 mp késleltetés lassítja a próbálgatást. Élesítéskor 
 
 ## Válaszok
 
-A választó oldal kérdéseire adott válaszok a `tudastars-valaszok` Workers KV-tárba kerülnek
-(kötés neve: `VALASZOK`), egy beküldés egy bejegyzés (`valasz:<időpont>:<azonosító>`, JSON).
-Ugyanide kerülnek a „Tetszik ez a rész?” jelzései is (`jelzes:<időpont>:<azonosító>`, a metaadatban
-a típus, az oldal és a szakasz). Megnézhetők a Cloudflare felületén: Storage & Databases > KV > tudastars-valaszok.
+A „Tetszik ez a rész?” jelzései (tetszik, miért, másképp, záró válasz, hívás) a `tudastars-valaszok`
+Workers KV-tárba kerülnek (kötés neve: `VALASZOK`), egy jelzés egy bejegyzés
+(`jelzes:<időpont>:<azonosító>`, a metaadatban a típus, az oldal és a szakasz). A korábbi kérdőív
+válaszai `valasz:` előtaggal maradtak meg. Megnézhetők a Cloudflare felületén: Storage & Databases > KV > tudastars-valaszok.
 
 ## Helyi teszt
 
@@ -71,8 +69,8 @@ a `public/assets/img/` mappába.
 
 ## Élesítés előtt
 
-- A kiválasztott változat kerül a gyökérbe; a többi, a választó, a `koszonom/`, a `reteg/` és a `functions/` törlendő,
-  és az oldalból a `reteg.css` / `reteg.js` hivatkozás.
+- A kiválasztott változat kerül a gyökérbe; a többi, a választó, a `reteg/` és a `functions/` törlendő,
+  és az oldalból a `reteg.css`, `reteg.js`, `tetszik.css`, `tetszik.js` hivatkozás és a `data-tz` attribútum.
 - A `noindex, nofollow` (HTML meta, `_headers`, `robots.txt`) törlendő.
 - Az „egyeztetendő” HTML-kommentek és az adatkezelési tájékoztató helye kitöltendő.
 - A domain DNS-ét át kell vinni a Cloudflare-re, figyelve a levelezés (MX, SPF) rekordjaira.

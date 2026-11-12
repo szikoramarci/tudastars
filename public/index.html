@@ -59,37 +59,12 @@
     .valtozat--elozo .megnez:hover { background: var(--tinta); color: #fff; }
 
     .tz-szam { display: inline-flex; align-items: center; gap: .4rem; margin: 0 0 1rem !important; font-weight: 600; color: var(--piros-mely); }
+    .tz-szam[hidden] { display: none; }
     .tz-szam::before { content: ""; width: .9rem; height: .9rem; background: var(--piros); clip-path: path('M7.2 13S0 8.6 0 3.9A3.9 3.9 0 0 1 7.2 1.8 3.9 3.9 0 0 1 14.4 3.9C14.4 8.6 7.2 13 7.2 13Z'); }
     .kozos { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--vonal); color: var(--halvany); font-size: 1rem; }
     .kozos h2 { font-size: 1.15rem; color: var(--tinta); }
     .kozos ul { margin: 0; padding-left: 1.2rem; }
     .lab { padding: 1.5rem 0 2rem; font-size: .9rem; color: var(--halvany); }
-    .resz { padding: 3rem 0 0; }
-    .resz h2.cim { font-size: clamp(1.7rem, 5vw, 2.3rem); line-height: 1.1; letter-spacing: -.02em; margin: 0 0 .6rem; }
-    .resz .bev2 { color: var(--halvany); max-width: 44rem; margin: 0 0 1.5rem; }
-
-    .kerdesek { background: var(--papir); border: 2px solid var(--tinta); border-radius: 10px; padding: 1.25rem; }
-    @media (min-width: 760px) { .kerdesek { padding: 1.75rem 2rem; } }
-    fieldset { border: 0; margin: 0 0 1.5rem; padding: 0; min-width: 0; }
-    legend, .kerdes-cim { display: block; font-weight: 700; font-size: 1.1rem; margin: 0 0 .7rem; padding: 0; }
-    .legend-apro { font-weight: 400; color: var(--halvany); font-size: .95rem; }
-    .valasztok { display: flex; flex-wrap: wrap; gap: .5rem; }
-    .valaszto { display: inline-flex; align-items: center; gap: .5rem; min-height: 46px; padding: .5rem .9rem; border: 1.5px solid var(--vonal); border-radius: 999px; cursor: pointer; background: var(--papir); }
-    .valaszto:hover { border-color: var(--tinta); }
-    .valaszto input { width: 1.15rem; height: 1.15rem; margin: 0; accent-color: var(--piros); }
-    .valaszto:has(input:checked) { border-color: var(--piros); background: #f8e6e8; }
-    .valaszto:has(input:focus-visible) { outline: 3px solid var(--piros); outline-offset: 2px; }
-    .valaszto input:focus-visible { outline: none; }
-    .mas { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; margin-top: .6rem; }
-    .mas label { font-weight: 600; }
-    input[type="text"], textarea { font: inherit; color: var(--tinta); border: 1.5px solid #8b8994; border-radius: 8px; padding: .6rem .75rem; width: 100%; max-width: 36rem; background: #fff; }
-    .mas input[type="text"] { width: auto; flex: 1; min-width: 12rem; }
-    textarea { min-height: 7rem; resize: vertical; display: block; }
-    input[type="text"]:focus, textarea:focus { outline: 3px solid var(--piros); outline-offset: 2px; border-color: var(--tinta); }
-    .mezo { margin: 0 0 1.5rem; }
-    .kuld { min-height: 50px; padding: .7rem 1.6rem; border: 0; border-radius: 4px; background: var(--piros); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
-    .kuld:hover { background: var(--piros-mely); }
-    .kerdesek .apro { font-size: .9rem; color: var(--halvany); margin: .9rem 0 0; }
 
   </style>
 </head>
@@ -98,8 +73,7 @@
     <div class="keret">
       <p class="marka"><span aria-hidden="true">Tt</span>TudásTárs</p>
       <h1>Tervváltozatok az új weboldalhoz</h1>
-      <p class="bev">Három irány ugyanarra a tartalomra, plusz az előző kör változata összehasonlításnak. Érdemes mindegyiket mobilon is megnézni. Az oldal alján pár rövid kérdésben elmondhatják, melyik tetszik, és mit vennének át az egyikből a másikba.</p>
-      <p class="bev" style="margin-top:.75rem"><a href="#kerdesek" style="color:#fff;font-weight:600">Ugrás a kérdésekhez</a></p>
+      <p class="bev">Három irány ugyanarra a tartalomra, plusz az előző kör változata összehasonlításnak. Érdemes mindegyiket mobilon is megnézni. Minden szakasz alatt egy koppintással jelölhetik, mi tetszik, és mit csinálnának másképp.</p>
     </div>
   </header>
 
@@ -166,55 +140,11 @@
           <li>A tartalom: bemutatkozás, programok, Rólunk, elérhetőség. Az elavult események, blog és partnerlogók kimaradtak.</li>
           <li>A Tudás+Részecskék és a TudásPresszó a saját weboldalára visz tovább.</li>
           <li>Mobilon az alján mindig ott a Hívás és az Email gomb.</li>
+          <li>Minden szakasz alatt jelölhetik, mi tetszik, és mit csinálnának másképp; a lap alján összegyűjtöm.</li>
           <li>A keresők nem indexelik, és belépőkód védi, amíg nem döntenek.</li>
         </ul>
       </section>
 
-      <section class="resz" id="kerdesek" aria-labelledby="kerdesek-cim">
-        <h2 class="cim" id="kerdesek-cim">Mi tetszik?</h2>
-        <p class="bev2">Három rövid kérdés, egy perc az egész. A válaszok alapján dolgozom tovább.</p>
-        <form class="kerdesek" method="post" action="/api/valasz">
-          <fieldset>
-            <legend>1. Melyik változat tetszik leginkább?</legend>
-            <div class="valasztok">
-              <label class="valaszto"><input type="radio" name="valtozat" value="1" required>1. Periódusos rendszer</label>
-              <label class="valaszto"><input type="radio" name="valtozat" value="2">2. Kockás füzet</label>
-              <label class="valaszto"><input type="radio" name="valtozat" value="3">3. Két ajtó</label>
-              <label class="valaszto"><input type="radio" name="valtozat" value="elozo">Az előző kör</label>
-              <label class="valaszto"><input type="radio" name="valtozat" value="egyik-sem">Egyik sem igazán</label>
-            </div>
-          </fieldset>
-
-          <fieldset>
-            <legend>2. Mi tetszik benne leginkább? <span class="legend-apro">Több is választható.</span></legend>
-            <div class="valasztok">
-              <label class="valaszto"><input type="checkbox" name="tetszik" value="attekintheto">Áttekinthető</label>
-              <label class="valaszto"><input type="checkbox" name="tetszik" value="mobil">Mobilon is kényelmes</label>
-              <label class="valaszto"><input type="checkbox" name="tetszik" value="szinek">A színek</label>
-              <label class="valaszto"><input type="checkbox" name="tetszik" value="kinezet">A betűk és a kinézet</label>
-              <label class="valaszto"><input type="checkbox" name="tetszik" value="programok">Ahogy a programokat bemutatja</label>
-              <label class="valaszto"><input type="checkbox" name="tetszik" value="kepek">A fotók</label>
-            </div>
-            <div class="mas">
-              <label for="mas">Más:</label>
-              <input type="text" id="mas" name="mas" maxlength="300">
-            </div>
-          </fieldset>
-
-          <div class="mezo">
-            <label class="kerdes-cim" for="maskepp">3. Mit csinálnának másképp, vagy mit vennének át egy másik változatból?</label>
-            <textarea id="maskepp" name="maskepp" maxlength="2000"></textarea>
-          </div>
-
-          <div class="mezo">
-            <label class="kerdes-cim" for="nev">A neve <span class="legend-apro">(nem kötelező)</span></label>
-            <input type="text" id="nev" name="nev" maxlength="120" autocomplete="name">
-          </div>
-
-          <button class="kuld" type="submit">Elküldöm</button>
-          <p class="apro">A válaszokat csak az új oldal tervezéséhez használom.</p>
-        </form>
-      </section>
     </div>
   </main>
 
